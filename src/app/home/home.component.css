@@ -1,0 +1,33 @@
+.content-box{
+  margin-top: 200px;
+  color:#535353;
+  margin-left: 300px;
+  margin-right:300px;
+  text-align: center;
+}
+.main-content{
+  text-align: center;
+  margin: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
+  box-sizing: border-box;
+  height: 1300px;
+}
+.steps{
+  height: 400px;
+  width: 400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.lefties{
+  float: left;
+}
+.righties{
+  float: right;
+}
+.head-main{
+  background-image: url("../../assets/images/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}

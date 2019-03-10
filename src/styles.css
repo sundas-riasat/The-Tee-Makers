@@ -4,6 +4,8 @@ html, body{
     border: 0;
     margin: 0 auto;
     font-family: Tahoma;
+  overflow-x: hidden;
+
 }
 .color-grey{
     color: #393E46;
@@ -63,12 +65,7 @@ a:hover{
     box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.7);
     background-color: rgba(255,255,255,0.6);
 }
-.head-main{
-    background-image: url("assets/images/bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
+
 .menu{
     margin-left: 300px;
     font-size: 20px;
@@ -105,29 +102,4 @@ a:hover{
     color: white;
     box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.7);
     transition: 0.2s ease-in-out;
-}
-.content-box{
-    margin-top: 200px;
-    color:#535353;
-    margin-left: 300px;
-    margin-right:300px;
-    text-align: center;
-}
-.main-content{
-    text-align: center;
-    margin: 100px;
-    padding-left: 100px;
-    padding-right: 100px;
-}
-.steps{
-    height: 400px;
-    width: 400px;
-    padding: 20px;
-    margin: 0 auto;
-}
-.lefties{
-    float: left;
-}
-.righties{
-    float: right;
 }
