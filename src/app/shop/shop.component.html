@@ -11,8 +11,8 @@
   <a routerLink="/" *ngFor="let prod of displayProds">
     <mat-card class="example-card">
       <mat-card-header>
-        <mat-card-title>{{prod.title}}</mat-card-title>
-        <p>{{prod.category}}</p>
+        <mat-card-title>{{prod.title}}</mat-card-title><br>
+        <mat-card-subtitle>{{prod.category}}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image src="{{prod.images}}" alt="Photo of a Shiba Inu">
       <mat-card-content>
@@ -24,10 +24,10 @@
     </mat-card>
   </a>
   <br><br>
-  <button class="tab"><<</button>
-  <button class="tab">Previous</button>
-  <button class="tab">Next</button>
-  <button class="tab">>></button>
+  <button class="tab" (click) = paginate(1)><<</button>
+  <button class="tab" (click) = paginate(2)>Previous</button>
+  <button class="tab" (click) = paginate(3)>Next</button>
+  <button class="tab" (click) = paginate(4)>>></button>
 </div>
 <app-pre-footer></app-pre-footer>
 <app-footer></app-footer>
