@@ -1,3 +1,33 @@
-<p>
-  shop works!
-</p>
+<div class="bg-white">
+  <app-header></app-header>
+</div>
+<div class="main-content">
+  <h1 class="color-blue">Shop</h1>
+  <br>
+  <div class="navigators">
+    <button (click)="getProds(cat)" *ngFor="let cat of categories" class="tab">{{cat}}</button>
+  </div>
+  <br>
+  <a routerLink="/" *ngFor="let prod of displayProds">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{prod.title}}</mat-card-title>
+        <p>{{prod.category}}</p>
+      </mat-card-header>
+      <img mat-card-image src="{{prod.images}}" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <h4><mat-card-subtitle>Price:{{prod.price}}$</mat-card-subtitle></h4>
+        <h5>{{prod.maker}}</h5>
+        <p>{{prod.date}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </a>
+  <br><br>
+  <button class="tab"><<</button>
+  <button class="tab">Previous</button>
+  <button class="tab">Next</button>
+  <button class="tab">>></button>
+</div>
+<app-pre-footer></app-pre-footer>
+<app-footer></app-footer>
