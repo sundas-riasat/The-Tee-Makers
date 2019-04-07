@@ -7,27 +7,32 @@
   <div class="navigators">
     <button (click)="getProds(cat)" *ngFor="let cat of categories" class="tab">{{cat}}</button>
   </div>
-  <br>
-  <a routerLink="/" *ngFor="let prod of displayProds">
+  <br >
+  <div *ngFor="let prod of displayProds; let i=index;" style="display: inline-block;">
+    <a [routerLink]="['/single-product/', i]" >
     <mat-card class="example-card">
       <mat-card-header>
-        <mat-card-title>{{prod.title}}</mat-card-title><br>
+        <mat-card-title>{{prod.title}}</mat-card-title>
+        <br>
         <mat-card-subtitle>{{prod.category}}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image src="{{prod.images}}" alt="Photo of a Shiba Inu">
       <mat-card-content>
-        <h4><mat-card-subtitle>Price:{{prod.price}}$</mat-card-subtitle></h4>
+        <h4>
+          <mat-card-subtitle>Price:{{prod.price}}$</mat-card-subtitle>
+        </h4>
         <h5>{{prod.maker}}</h5>
         <p>{{prod.date}}
         </p>
       </mat-card-content>
     </mat-card>
   </a>
+  </div>
   <br><br>
-  <button class="tab" (click) = paginate(1)><<</button>
-  <button class="tab" (click) = paginate(2)>Previous</button>
-  <button class="tab" (click) = paginate(3)>Next</button>
-  <button class="tab" (click) = paginate(4)>>></button>
+  <button class="tab" (click)=paginate(1)><<</button>
+  <button class="tab" (click)=paginate(2)>Previous</button>
+  <button class="tab" (click)=paginate(3)>Next</button>
+  <button class="tab" (click)=paginate(4)>>></button>
 </div>
 <app-pre-footer></app-pre-footer>
 <app-footer></app-footer>

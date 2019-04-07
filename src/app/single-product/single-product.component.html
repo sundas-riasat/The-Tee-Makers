@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="main-content">
+  <mat-card class="example-card">
+    <div style="display: flex; justify-content: space-evenly;">
+      <div class="divider">
+        <mat-card-header>
+          <mat-card-title class="color-blue" style="font-weight: bold;">{{product?.title}}</mat-card-title>
+          <mat-card-title>${{product?.price}}</mat-card-title>
+        </mat-card-header>
+        <h4>Category: <span style="font-weight: lighter;">{{product?.category}}</span></h4>
+        <h4>Description:  <span style="font-weight: lighter;">{{product?.description}}</span></h4>
+        <br><br>
+        <mat-form-field class="example-full-width">
+          <input matInput type="color" placeholder="Choose Color" [(ngModel)]="product.color">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Size</mat-label>
+          <mat-select [(value)]="product.size">
+            <mat-option *ngFor="let size of sizes" [value]="size">
+              {{size}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br><br><br>
+        <div style="display: flex; width: 70%;justify-content: space-around; margin: 0 auto;">
+          <a class="btn" >Customize</a>
+          <a  class="btn" [routerLink]="['/user/cart/', id]"  >Add to Cart</a>
+        </div>
+      </div>
+      <div class="divider">
+        <img mat-card-image [src]="product?.images" alt="..Downloding..">
+      </div>
+    </div>
+  </mat-card>
+</div> <br><br>
+<app-pre-footer></app-pre-footer>
+<app-footer></app-footer>

@@ -20,4 +20,12 @@ export class ProductService {
   addProduct(temp) {
     this.db.object('/products').update(temp);
   }
+
+  getProduct(id) {
+    return this.db.object('/products/' + id).valueChanges();
+  }
+
+  getSizes(){
+    return this.db.object('/sizes').valueChanges();
+  }
 }

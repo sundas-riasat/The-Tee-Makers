@@ -1,0 +1,21 @@
+.holder{
+  display: flex;
+  text-align: center;
+}
+.login{
+  width: 50%;
+  border-right: 0.5px solid  #00ADB5;
+}
+.register{
+  width: 50%;
+}
+.only{
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+.logo{
+  float: none;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+}

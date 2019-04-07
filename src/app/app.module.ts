@@ -52,6 +52,7 @@ import {
     MatTooltipModule,
     MatTreeModule,
 } from '@angular/material';
+import { SingleProductComponent } from './single-product/single-product.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import {
     AboutComponent,
     ShopComponent,
     ContactComponent,
-    PreFooterComponent
+    PreFooterComponent,
+    SingleProductComponent
   ],
   imports: [
     BrowserModule,
@@ -122,6 +124,22 @@ import {
       {
         path: 'contact',
         component: ContactComponent
+      },
+      {
+        path: 'single-product/:id',
+        component: SingleProductComponent
+      },
+      {
+        path: 'user',
+        loadChildren: './user/user.module#UserModule'
+      },
+      {
+        path: 'admin',
+        loadChildren: './admin/admin.module#AdminModule'
+      },
+      {
+        path: 'design',
+        loadChildren: './design/design.module#DesignModule'
       }
     ])
   ],

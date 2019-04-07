@@ -1,0 +1,25 @@
+.example-card {
+  width: 80%;
+  height: 100%;
+  background-color: whitesmoke;
+  text-align: left;
+  color: #393E46;
+  margin: 0.5%;
+  display: inline-block;
+}
+.example-card img{
+  height: 300px;
+  width: auto;
+  box-shadow: 3px 2px 4px 1px rgba(0,0,0,0.5);
+  border-radius: 5px;
+}
+.main-content {
+  text-align: center;
+  margin-top: 30px;
+}
+.divider{
+  width: 40%;
+  margin: 5%;
+  align-content: center;
+}
+

@@ -5,21 +5,21 @@
   <div class="menu">
       <ul>
           <a href="#">
-              <li>Do Your Tee</li>
+              <li routerLinkActive="bg-yellow">Do Your Tee</li>
           </a>
-          <a routerLink="/">
+          <a routerLink="/" routerLinkActive="bg-yellow" [routerLinkActiveOptions]="{exact: true}">
               <li>Home</li>
           </a>
-          <a routerLink="/shop">
+          <a routerLink="/shop" routerLinkActive="bg-yellow">
               <li>Shop</li>
           </a>
-          <a routerLink="/about">
+          <a routerLink="/about" routerLinkActive="bg-yellow">
               <li>About Us</li>
           </a>
-          <a routerLink="/contact">
+          <a routerLink="/contact" routerLinkActive="bg-yellow">
               <li>Contact Us</li>
           </a>
       </ul>
-      <a class="btn" href="">Login/Sign Up</a>
+      <a class="btn" href="/user/login">Login/Sign Up</a>
   </div>
 </div>
