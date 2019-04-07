@@ -11,7 +11,9 @@ import {RouterModule} from '@angular/router';
 import {PreFooterComponent} from './pre-footer/pre-footer.component';
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import {environment} from '../environments/environment';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AngularFireModule} from '@angular/fire';
+import {FormsModule} from '@angular/forms';
 import {AngularFireDatabaseModule} from "@angular/fire/database";
 import {
   MatAutocompleteModule,
@@ -65,6 +67,7 @@ import {
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'the-t-makers'),
+    FormsModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     MatAutocompleteModule,
@@ -102,6 +105,7 @@ import {
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       {
         path: '',

@@ -1,3 +1,61 @@
-<p>
-  contact works!
-</p>
+<div class="main-content" style="text-align: center;">
+    <app-header></app-header>
+    <h1 class="color-blue">Contact Us</h1>
+    <div class="wrapper">
+        <div class="form">
+            <form action="">
+                <mat-form-field>
+                    <input matInput placeholder="First Name" name="firstname" [(ngModel)]="message.fname">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Last Name" name="lastname" [(ngModel)]="message.lname">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Phone Number" name="number" [(ngModel)]="message.phno">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="email" placeholder="Email" name="email" [(ngModel)]="message.email">
+                </mat-form-field>
+                <mat-form-field class="textarea">
+                    <textarea matInput placeholder="Message" name="msg" [(ngModel)]="message.msg"></textarea>
+                </mat-form-field>
+                <br><br><br>
+                <div class="button">
+                    <a class="btn" (click)='save()'>Send Message</a>
+                </div>
+            </form>
+        </div>
+        <div class="contact">
+            <div class="details">
+                <div>
+                    <img src="../../assets/images/AI_mail.png" alt="">
+                    <p>info@domain.com</p>
+                </div>
+                <div>
+                    <img src="../../assets/images/AI_mail.png" alt="">
+                    <p>info@domain.com</p>
+                </div>
+                <div>
+                    <img src="../../assets/images/AI_telephone.png" alt="">
+                    <p>03331234567</p>
+                </div>
+            </div>
+            <div class="social">
+                <a href="">
+                    <img src="../../assets/images/1x/Asset 1.png">
+                </a>
+                <a href="">
+                    <img src="../../assets/images/1x/Asset 2.png">
+                </a>
+                <a href="">
+                    <img src="../../assets/images/1x/Asset 3.png">
+                </a>
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13286.529553360242!2d72.9755828!3d33.6407725!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1552729518099"
+                    width="" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <img src="../../assets/images/AI_mappointer.png" alt="Locaion"><p>Islamabad, Pakistan.</p>
+            </div>
+        </div>
+    </div>
+</div>

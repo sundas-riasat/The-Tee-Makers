@@ -1,0 +1,53 @@
+.wrapper{
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+}
+.form{
+    display: inline;
+    padding: 20px;
+    width: 52%;
+}
+mat-form-field{
+    margin: 20px;
+    width: 300px;
+    display: inline-block;
+}
+.textarea{
+    width: 640px;
+}
+.button {
+    text-align: center;
+}
+.contact{
+    width: 45%;
+    padding: 20px;
+}
+img{
+    height: 70px;
+}
+.details img{
+    height: 20px;
+    text-align: center;
+}
+.details, .social{
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-around; 
+    text-align: center;
+}
+.map{
+    margin-top: 20px;
+}
+.map iframe{
+    width: 100%;
+}
+.map img{
+    height: 20px;
+    display: inline;
+    margin-right: 10px;
+}
+.map p{
+    display: inline;
+}
