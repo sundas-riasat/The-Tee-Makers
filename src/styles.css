@@ -1,5 +1,6 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber';
 
+
 html, body{
     width: 100%;
     height: 100%;
@@ -25,19 +26,19 @@ html, body{
     color: #00ADB5;
 }
 .bg-grey{
-    color: #393E46;
+    background-color: #393E46;
 }
 .bg-yellow{
-    color: #F8B500;
+  background-color: #F8B500;
 }
 .bg-red{
-    color:#FC3C3C;
+  background-color:#FC3C3C;
 }
 .bg-white{
-    color: #FFFFFF;
+  background-color: #FFFFFF;
 }
 .bg-blue{
-    color: #00ADB5;
+  background-color: #00ADB5;
 }
 
 a{
@@ -107,4 +108,11 @@ a:hover{
 }
 .main-content{
     width: 100%;
+}
+.shadow{
+  box-sizing: border-box;
+  box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.7);
+}
+.height-full{
+  height: 100vh;
 }

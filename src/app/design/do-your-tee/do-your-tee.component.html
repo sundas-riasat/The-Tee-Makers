@@ -1,0 +1,64 @@
+<div class="main bg-grey">
+  <div class="container">
+    <div class="row bg-white shadow" style="z-index: 100; position: relative">
+      <mat-grid-list cols="12" rowHeight="100px">
+        <mat-grid-tile [colspan]="1">
+          <a href="/"><img class="icon" src="../../../assets/images/back-nav.png" alt=""></a>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="9">
+          <a href="/"><img class="logo" src="../../../assets/images/icon-logo.png" alt=""></a>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2">
+          <a href="" class="btn">Continue to Cart</a>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <mat-card class="pop-card" id="color">
+      <div class="cp bg-blue">
+
+      </div>
+      <div class="cp bg-grey">
+
+      </div>
+      <div class="cp bg-yellow">
+
+      </div>
+    </mat-card>
+    <div class="flex">
+      <div class="side-pan bg-white">
+        <div style="height: 100%;">
+          <div class="drawer shadow" (click)="openUp('color')">
+            <a href="/"><img class="icon" src="../../../assets/images/color.png" alt=""></a>
+            <h2>Color</h2>
+          </div>
+          <div class="drawer shadow">
+            <a href="/"><img class="icon" src="../../../assets/images/size.png" alt=""></a>
+            <h2>Size</h2>
+          </div>
+          <div class="drawer shadow">
+            <a href="/"><img class="icon" src="../../../assets/images/design.png" alt=""></a>
+            <h2>Design</h2>
+          </div>
+          <div class="drawer shadow">
+            <a href="/"><img class="icon" src="../../../assets/images/type.png" alt=""></a>
+            <h2>Type</h2>
+          </div>
+          <div class="drawer shadow">
+            <a href="/"><img class="icon" src="../../../assets/images/text-type.png" alt=""></a>
+            <h2>Text</h2>
+          </div>
+          <div class="drawer shadow">
+            <a href="/"><img class="icon" src="../../../assets/images/vectors.png" alt=""></a>
+            <h2>Vectors</h2>
+          </div>
+
+        </div>
+      </div>
+      <div class="display">
+        <div class="view">
+          <img src="../../../assets/images/Group%201.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

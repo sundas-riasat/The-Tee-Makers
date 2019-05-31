@@ -11,14 +11,14 @@ import {ProductService} from "../product.service";
 export class SingleProductComponent implements OnInit {
 
   id: number;
-  product: Product = new Product();
-  sizes = [];
+  product: Product;
+  sizes;
 
   constructor(private router: ActivatedRoute, private productService: ProductService) {
-    router.paramMap.subscribe(param => {
-      this.id = param.params.id;
+    router.queryParams.subscribe(params => {
+      this.id = params.id;
       productService.getProduct(this.id).subscribe(prod => {
-        this.product = prod.valueOf();
+        this.product = new Product(prod);
       });
       productService.getSizes().subscribe(colors => {
         this.sizes = colors;

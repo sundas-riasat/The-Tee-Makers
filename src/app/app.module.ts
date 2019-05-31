@@ -14,6 +14,7 @@ import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AngularFireModule} from '@angular/fire';
 import {FormsModule} from '@angular/forms';
+import { AlertModule } from 'ngx-bootstrap';
 import {AngularFireDatabaseModule} from "@angular/fire/database";
 import {
   MatAutocompleteModule,
@@ -108,6 +109,7 @@ import { SingleProductComponent } from './single-product/single-product.componen
     MatTooltipModule,
     MatTreeModule,
     BrowserAnimationsModule,
+    AlertModule.forRoot(),
     RouterModule.forRoot([
       {
         path: '',
