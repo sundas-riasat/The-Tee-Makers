@@ -21,6 +21,12 @@
           <input [disabled]="disabled" [(ngModel)]="tmp.address" style="width: 100%;" matInput placeholder="Address">
         </mat-form-field>
         <mat-form-field class="example-full-width" >
+          <input [disabled]="disabled" [(ngModel)]="tmp.city" style="width: 100%;"  matInput type="text" placeholder="City">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" >
+          <input [disabled]="disabled" [(ngModel)]="tmp.country" style="width: 100%;"  matInput type="text" placeholder="Country">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" >
           <input [disabled]="disabled" [(ngModel)]="tmp.zip" style="width: 100%;"  matInput type="number" placeholder="Zip Code">
         </mat-form-field>
       </div>
@@ -44,7 +50,7 @@
       </div>
     </div>
   </div>
-<div class="row top-up" style="transform: translateY(-50%)">
+<div class="row top-up" style="transform: translateY(-100%)">
   <div class="clm-12" style="text-align: center">
     <a class="btn" (click)="edit()">
       <button mat-raised-button color="primary">Edit</button>
@@ -52,7 +58,6 @@
     <a class="btn" (click)="save()">
       <button mat-raised-button color="accent">Save</button>
     </a>
-    <div class="spacer"></div>
   </div>
 </div>
 </div>

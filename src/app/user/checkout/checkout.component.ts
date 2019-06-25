@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../user.service';
 import {ProductService} from '../../product.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -17,7 +18,7 @@ export class CheckoutComponent implements OnInit {
   products: any = [];
   total = 0;
 
-  constructor(public auth: UserService, public prod: ProductService) {
+  constructor(public auth: UserService, public prod: ProductService, public router: Router) {
     this.disabled = true;
     setTimeout(() => {
       this.id = auth.getUserId();
@@ -48,4 +49,28 @@ export class CheckoutComponent implements OnInit {
     this.disabled = val;
   }
 
+  checkout() {
+    const order: any = {};
+    order.uid = this.id;
+    order.name = this.user.name;
+    order.address = {
+      country: this.user.country,
+      stAdd: this.user.address,
+      zip: this.user.zip,
+      city: this.user.city
+    };
+    order.cart = this.cart;
+    if (!this.disabled) {
+      order.card = this.card;
+      order.cash = false;
+    } else {
+      order.card = {};
+    }
+    this.prod.makeOrder(order).then(x => {
+      console.log('Done Happily');
+      this.router.navigate(['/shop']);
+    }).catch(err => {
+      console.log('Sad: ' + err);
+    });
+  }
 }

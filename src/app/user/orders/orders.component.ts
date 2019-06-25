@@ -18,9 +18,6 @@ export class OrdersComponent implements OnInit {
   ];
 
   /** Gets the total cost of all transactions. */
-  getTotalCost() {
-    return this.transactions.map(t => t.cost).reduce((acc, value) => acc + value, 0);
-  }
   constructor() { }
 
   ngOnInit() {

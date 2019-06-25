@@ -26,7 +26,7 @@ export class ProductService {
   }
 
   addProduct(temp) {
-    this.db.object('/products').update(temp);
+    this.db.list('/products').push(temp);
   }
 
   async getProduct(id) {
@@ -43,6 +43,10 @@ export class ProductService {
   }
 
   async getCart() {
-      return this.db.object('usersData/' + this.user.getUserId() + '/cart').valueChanges();
+    return this.db.object('usersData/' + this.user.getUserId() + '/cart').valueChanges();
+  }
+
+  async makeOrder(order) {
+    return this.db.list('/orders/').push(order);
   }
 }

@@ -26,6 +26,7 @@
 }
 .container{
   margin: 10%;
+  margin-bottom: 1%;
 }
 mat-form-field{
   width: 300px !important;
