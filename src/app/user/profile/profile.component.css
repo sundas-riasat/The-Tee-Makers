@@ -1,0 +1,43 @@
+.bg{
+  height: 50vh;
+  background-image: url("https://wallpaperaccess.com/full/7313.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.profile-pic{
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../../../assets/images/bg-head.jpg");
+  margin: 0 auto;
+}
+.profile-head{
+  display: block;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+.container{
+  margin: 10%;
+}
+mat-form-field{
+  width: 300px !important;
+}
+.top-up{
+  position: relative;
+  transform: translate(0, -25%);
+}
+mat-radio-button{
+  margin: 5px;
+}
+
+a{
+  margin:5px;
+}

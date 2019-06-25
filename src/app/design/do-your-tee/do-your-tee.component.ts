@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-do-your-tee',
@@ -8,10 +9,18 @@ import {Component, OnInit} from '@angular/core';
 export class DoYourTeeComponent implements OnInit {
   opened = '';
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
+    this.http.request('GET', 'http://localhost:3000').subscribe((data) => {
+        const dat: any = data;
+        console.log(dat.path);
+        document.getElementById('shirt').setAttribute('src', '../../../../../../' + dat.path);
+      },
+      err => {
+        console.log(err);
+      });
   }
 
   openUp(id) {

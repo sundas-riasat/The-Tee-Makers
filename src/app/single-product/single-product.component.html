@@ -1,5 +1,5 @@
-<app-header></app-header>
 <div class="main-content">
+  <div class="spacer" style="padding: 10px"></div>
   <mat-card class="example-card">
     <div style="display: flex; justify-content: space-evenly;">
       <div class="divider">
@@ -8,7 +8,7 @@
           <mat-card-title>${{product?.price}}</mat-card-title>
         </mat-card-header>
         <h4>Category: <span style="font-weight: lighter;">{{product?.category}}</span></h4>
-        <h4>Description:  <span style="font-weight: lighter;">{{product?.description}}</span></h4>
+        <h4>Description: <span style="font-weight: lighter;">{{product?.description}}</span></h4>
         <br><br>
         <mat-form-field class="example-full-width">
           <input matInput type="color" placeholder="Choose Color" [(ngModel)]="product.color">
@@ -21,10 +21,18 @@
               {{size}}
             </mat-option>
           </mat-select>
-        </mat-form-field><br><br><br>
+        </mat-form-field>
+        <br><br><br>
         <div style="display: flex; width: 70%;justify-content: space-around; margin: 0 auto;">
-          <a class="btn" >Customize</a>
-          <a  class="btn" [routerLink]="['/user/cart/', id]"  >Add to Cart</a>
+          <a class="btn">
+            <button mat-stroked-button>Customize</button>
+          </a>
+          <a class="btn" (click)="addToCart()">
+            <button mat-stroked-button>Add to Cart</button>
+          </a>
+          <a class="btn" [routerLink]="['/user/cart']">
+            <button mat-stroked-button>Go to Cart</button>
+          </a>
         </div>
       </div>
       <div class="divider">
@@ -33,5 +41,4 @@
     </div>
   </mat-card>
 </div> <br><br>
-<app-pre-footer></app-pre-footer>
-<app-footer></app-footer>
+

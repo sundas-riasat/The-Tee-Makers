@@ -1,25 +1,43 @@
 <div class="header">
   <a href="#">
-      <img class="logo" src="assets/images/icon-logo.png" alt="" srcset="">
+    <img class="logo" src="assets/images/icon-logo.png" alt="" srcset="">
   </a>
   <div class="menu">
-      <ul>
-          <a href="/design/dyt">
-              <li routerLinkActive="color-yellow">Do Your Tee</li>
-          </a>
-          <a routerLink="/" routerLinkActive="color-yellow" [routerLinkActiveOptions]="{exact: true}">
-              <li>Home</li>
-          </a>
-          <a routerLink="/shop" routerLinkActive="color-yellow">
-              <li>Shop</li>
-          </a>
-          <a routerLink="/about" routerLinkActive="color-yellow">
-              <li>About Us</li>
-          </a>
-          <a routerLink="/contact" routerLinkActive="color-yellow">
-              <li>Contact Us</li>
-          </a>
-      </ul>
-      <a class="btn" href="/user/login">Login/Sign Up</a>
+    <ul class="menu-list">
+      <a href="/design/dyt">
+        <li routerLinkActive="color-yellow">Do Your Tee</li>
+      </a>
+      <a routerLink="/" routerLinkActive="color-yellow" [routerLinkActiveOptions]="{exact: true}">
+        <li>Home</li>
+      </a>
+      <a routerLink="/shop" routerLinkActive="color-yellow">
+        <li>Shop</li>
+      </a>
+      <a routerLink="/about" routerLinkActive="color-yellow">
+        <li>About Us</li>
+      </a>
+      <a routerLink="/contact" routerLinkActive="color-yellow">
+        <li>Contact Us</li>
+      </a>
+    </ul>
+
+    <a *ngIf="!user.isLoggedIn()" class="btn" routerLink="/user/login">
+      <button mat-stroked-button><img class="icon" src="https://img.icons8.com/material/24/000000/user-male.png"> Login
+      </button>
+    </a>
+    <a *ngIf="user.isLoggedIn()" >
+      <button mat-stroked-button [matMenuTriggerFor]="animals"><img class="icon"
+                                                                    src="https://img.icons8.com/material/24/000000/user-male.png">
+        {{username? username:"Username"}}
+      </button>
+      <mat-menu #animals="matMenu">
+        <button mat-menu-item routerLink="/user/profile">Profile</button>
+        <button mat-menu-item routerLink="/user/orders">Orders</button>
+        <button mat-menu-item routerLink="/user/designs">Designs</button>
+        <button mat-menu-item routerLink="/user/queries">Queries</button>
+        <button mat-menu-item routerLink="/user/cart">Cart</button>
+        <button mat-menu-item (click)="user.logout()">Logout</button>
+      </mat-menu>
+    </a>
   </div>
 </div>

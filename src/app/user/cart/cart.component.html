@@ -1,0 +1,25 @@
+<div class="main-content">
+  <div class="spacer" style="padding: 10px;"></div>
+  <h2 class="color-blue">Cart</h2>
+  <div class="row" style="text-align: left" *ngFor="let item of products">
+    <div class="clm-6">
+      <div class="cart-item">
+        <mat-card>
+          <div class="row" style="width: fit-content">
+            <div class="clm-6" style="padding: 20px;">
+              <h4>{{item.title}}</h4>
+              <p>{{item.price}}$</p>
+              <p><b>Delivery Charges:</b> {{item.price}}</p>
+            </div>
+            <div class="clm-6" style="padding: 20px;">
+              <img class="cart-pic" [src]="item.images" alt="">
+            </div>
+          </div>
+          <a> <button mat-raised-button color="warn"> Remove from Cart</button></a>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <a ><button mat-raised-button color="accent" routerLink="/user/checkout">Checkout</button></a>
+  <div class="spacer"></div>
+</div>

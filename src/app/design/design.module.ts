@@ -4,6 +4,7 @@ import { DoYourTeeComponent } from './do-your-tee/do-your-tee.component';
 import {RouterModule} from '@angular/router';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {MatCardModule} from '@angular/material';
       path: 'dyt',
       component: DoYourTeeComponent
     }]),
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ]
 })
 export class DesignModule { }

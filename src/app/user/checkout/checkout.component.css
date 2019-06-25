@@ -1,0 +1,24 @@
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+tr, td{
+  border: 1px solid grey;
+  margin: 0px !important;
+  text-align: center;
+  padding: 5px;
+}
+ tr th{
+   background-color: #2B2F34;
+   color: white;
+   padding: 5px;
+ }
+
+mat-radio-button{
+  width: 70%;
+  padding: 10px;
+  color:white;
+}
+a{
+  margin: 10px;
+}

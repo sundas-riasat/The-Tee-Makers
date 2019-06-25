@@ -1,118 +1,190 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 
-html, body{
-    width: 100%;
-    height: 100%;
-    border: 0;
-    margin: 0 auto;
-    font-family: Tahoma;
-  overflow-x: hidden;
+html, body {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  margin: 0 auto;
+  font-family: Tahoma;
+  scroll-behavior: smooth;
+}
 
+.color-grey {
+  color: #393E46;
 }
-.color-grey{
-    color: #393E46;
+
+.color-yellow {
+  color: #F8B500;
 }
-.color-yellow{
-    color: #F8B500;
+
+.color-red {
+  color: #FC3C3C;
 }
-.color-red{
-    color:#FC3C3C;
+
+.color-white {
+  color: #FFFFFF;
 }
-.color-white{
-    color: #FFFFFF;
+
+.color-blue {
+  color: #00ADB5;
 }
-.color-blue{
-    color: #00ADB5;
+
+.bg-grey {
+  background-color: #393E46;
 }
-.bg-grey{
-    background-color: #393E46;
-}
-.bg-yellow{
+
+.bg-yellow {
   background-color: #F8B500;
 }
-.bg-red{
-  background-color:#FC3C3C;
+
+.bg-red {
+  background-color: #FC3C3C;
 }
-.bg-white{
+
+.bg-white {
   background-color: #FFFFFF;
 }
-.bg-blue{
+
+.bg-blue {
   background-color: #00ADB5;
 }
 
-a{
-    color: #393E46;
-    text-decoration: none;
-    transition: color 0.4s ease;
-}
-h1,h2,h3,h4,h5,h6{
-    font-family: 'Gadugi';
-}
-a:hover{
-    color: #F8B500;
-    transition: color 0.4s ease;
-}
-.logo{
-    height:70px;
-    margin: 5px;
-    float:left;
-    vertical-align: middle;
-}
-.header .logo{
-    margin-left: 30px;
-}
-.header{
-    height: 80px;
-    padding: 10px;
-    box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.7);
-    background-color: rgba(255,255,255,0.6);
+a {
+  color: #393E46;
+  text-decoration: none;
+  transition: color 0.4s ease;
 }
 
-.menu{
-    margin-left: 300px;
-    font-size: 20px;
-    color:#393E46;
-    margin-top: 30px;
-    font-family: Tahoma;
-    vertical-align: middle;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Gadugi';
 }
-.menu ul{
-    list-style: none;
-    display: inline;
+
+a:hover {
+  color: #F8B500;
+  transition: color 0.4s ease;
 }
-.menu ul li{
-    display: inline;
-    margin-right: 50px;
+
+.logo {
+  height: 70px;
+  margin: 5px;
+  float: left;
+  vertical-align: middle;
 }
-.menu .btn{
-    margin-left:70px;
-    display: inline;   
+
+.header .logo {
+  margin-left: 30px;
 }
-.btn{
-    background-color: #393E46;
-    text-align: center;
-    padding: 20px;
-    color: white;
-    transition: 0.2s ease-in-out;
-    transition-property: background-color, box-shadow;
-    box-sizing: border-box;
-    width: 300px;
-    font-size: 20px;
+
+.header {
+  height: 80px;
+  padding: 10px;
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 1);
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  overflow: hidden;
+  top:0;
+
 }
-.btn:hover{
-    background-color: #F83D3D;
-    color: white;
-    box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.7);
-    transition: 0.2s ease-in-out;
+
+.menu {
+  margin-left: 300px;
+  font-size: 16px;
+  color: #393E46;
+  margin-top: 30px;
+  font-family: Tahoma;
+  vertical-align: middle;
+
 }
-.main-content{
-    width: 100%;
+
+.menu-list {
+  margin-right: 100px;
 }
-.shadow{
+
+.menu ul {
+  list-style: none;
+  display: inline;
+}
+
+.menu ul li {
+  display: inline;
+  margin-right: 50px;
+}
+
+.main-content {
+  width: 100%;
+}
+
+.shadow {
   box-sizing: border-box;
-  box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.7);
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.7);
 }
-.height-full{
+
+.height-full {
   height: 100vh;
+}
+
+.spacer {
+  margin-bottom: 100px;
+}
+/******   ScrollBar   *******/
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  z-index: 200;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #393E46;
+  transition: 1s ease;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+  transition: 1s ease;
+}
+
+.row{
+  display: flex;
+  align-content: center;
+  width: 100ch;
+  box-sizing: content-box;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.clm-12{
+  width: 100%;
+  display: flex;
+  align-content: center;
+  padding: 10px;
+}
+.clm-6{
+  width: 50%;
+  display: inline-block;
+}
+.clm-4{
+  width: 25%;
+  display: inline-block;
+}
+.clm-2{
+  width: 16.65%;
+  display: inline-block;
+}
+.clm-1{
+  width: 8.32%;
+  display: inline-block;
+}
+.flex{
+  display: flex;
+  width: 100%;
 }

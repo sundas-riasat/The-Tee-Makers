@@ -9,51 +9,55 @@ import {ShopComponent} from './shop/shop.component';
 import {ContactComponent} from './contact/contact.component';
 import {RouterModule} from '@angular/router';
 import {PreFooterComponent} from './pre-footer/pre-footer.component';
-import {AngularFirestoreModule} from "@angular/fire/firestore";
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AngularFireModule} from '@angular/fire';
 import {FormsModule} from '@angular/forms';
-import { AlertModule } from 'ngx-bootstrap';
-import {AngularFireDatabaseModule} from "@angular/fire/database";
+import {AlertModule} from 'ngx-bootstrap';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 import {
   MatAutocompleteModule,
-    MatBadgeModule,
-    MatBottomSheetModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatDatepickerModule,
-    MatDialogModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatStepperModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatTreeModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule,
 } from '@angular/material';
-import { SingleProductComponent } from './single-product/single-product.component';
+import {SingleProductComponent} from './single-product/single-product.component';
+import {HttpClientModule} from '@angular/common/http';
+import {ProductService} from './product.service';
+import {UserService} from './user.service';
 
 @NgModule({
   declarations: [
@@ -73,6 +77,7 @@ import { SingleProductComponent } from './single-product/single-product.componen
     FormsModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -109,6 +114,7 @@ import { SingleProductComponent } from './single-product/single-product.componen
     MatTooltipModule,
     MatTreeModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AlertModule.forRoot(),
     RouterModule.forRoot([
       {
@@ -146,8 +152,12 @@ import { SingleProductComponent } from './single-product/single-product.componen
     ])
   ],
   providers: [
+    ProductService,
+    UserService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+  ]
 })
 export class AppModule {
 }
