@@ -9,6 +9,7 @@
   text-align: center;
   margin: 0 auto;
   box-sizing: border-box;
+  font-size: small;
 }
 .steps{
   height: 400px;
