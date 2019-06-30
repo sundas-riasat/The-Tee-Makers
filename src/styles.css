@@ -1,5 +1,5 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-
+@import '~bootstrap/dist/css/bootstrap-grid.css';
 
 html, body {
   width: 100%;
@@ -154,36 +154,7 @@ a:hover {
   transition: 1s ease;
 }
 
-.row{
-  display: flex;
-  align-content: center;
-  width: 100ch;
-  box-sizing: content-box;
-  overflow: hidden;
-  margin: 0 auto;
-}
-.clm-12{
-  width: 100%;
-  display: flex;
-  align-content: center;
-  padding: 10px;
-}
-.clm-6{
-  width: 50%;
-  display: inline-block;
-}
-.clm-4{
-  width: 25%;
-  display: inline-block;
-}
-.clm-2{
-  width: 16.65%;
-  display: inline-block;
-}
-.clm-1{
-  width: 8.32%;
-  display: inline-block;
-}
+
 .flex{
   display: flex;
   width: 100%;

@@ -1,0 +1,27 @@
+<div class="main-content">
+  <div class="make-center">
+    <div class="spacer" style="padding: 10px;"></div>
+    <div class="card">
+      <div class="row">
+        <div class="clm-12">
+          <h2 class="color-blue">Administrative Login</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="clm-12" style="width: 40%;margin: 0 auto">
+          <mat-form-field class="example-full-width" style="width: 70%;">
+            <input #uname style="width: 100%;" matInput placeholder="Username">
+          </mat-form-field>
+          <br><br>
+          <mat-form-field class="example-full-width" style="width: 70%;">
+            <input #pass style="width: 100%;" type="password" matInput placeholder="Password">
+          </mat-form-field>
+          <br>
+          <a class="btn" (click)="auth.login(uname.value, pass.value)">
+            <button mat-raised-button color="accent">Login</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

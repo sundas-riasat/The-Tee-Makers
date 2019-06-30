@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "../../user.service";
 
 @Component({
   selector: 'app-orders',
@@ -8,19 +9,24 @@ import { Component, OnInit } from '@angular/core';
 export class OrdersComponent implements OnInit {
 
   displayedColumns: string[] = ['sr', 'date', 'details', 'price', 'status', 'exp'];
-  transactions = [
-    {item: 'Beach ball', cost: 4},
-    {item: 'Towel', cost: 5},
-    {item: 'Frisbee', cost: 2},
-    {item: 'Sunscreen', cost: 4},
-    {item: 'Cooler', cost: 25},
-    {item: 'Swim suit', cost: 15},
-  ];
+  transactions = [];
 
   /** Gets the total cost of all transactions. */
-  constructor() { }
+  constructor(user: UserService) {
+    const orders = user.getUserOrder().then(x => {
+      x.subscribe(data => {
+        this.transactions = data;
+      });
+    });
+  }
 
   ngOnInit() {
+  }
+
+  getExpectedDate(date) {
+    const result = new Date(date);
+    result.setDate(result.getDate() + 6);
+    return result.toLocaleString();
   }
 
 }

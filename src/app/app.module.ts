@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from './header/header.component';
+import { ChartsModule} from "ng2-charts";
 import {FooterComponent} from './footer/footer.component';
 import {AboutComponent} from './about/about.component';
 import {ShopComponent} from './shop/shop.component';
@@ -58,6 +59,7 @@ import {SingleProductComponent} from './single-product/single-product.component'
 import {HttpClientModule} from '@angular/common/http';
 import {ProductService} from './product.service';
 import {UserService} from './user.service';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,8 @@ import {UserService} from './user.service';
     ShopComponent,
     ContactComponent,
     PreFooterComponent,
-    SingleProductComponent
+    SingleProductComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -115,6 +118,7 @@ import {UserService} from './user.service';
     MatTreeModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ChartsModule,
     AlertModule.forRoot(),
     RouterModule.forRoot([
       {
@@ -157,6 +161,7 @@ import {UserService} from './user.service';
   ],
   bootstrap: [AppComponent],
   exports: [
+    ChartsModule
   ]
 })
 export class AppModule {

@@ -1,14 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {LoginComponent} from './login/login.component';
 import {RouterModule} from '@angular/router';
-import {DashboardModule} from './dashboard/dashboard.module';
-import {AngularFireModule} from "@angular/fire";
-import {environment} from "../../environments/environment";
-import {FormsModule} from "@angular/forms";
-import {AngularFirestoreModule} from "@angular/fire/firestore";
-import {AngularFireDatabaseModule} from "@angular/fire/database";
-import {AngularFireAuthModule} from "@angular/fire/auth";
+import {ChartsModule} from 'ng2-charts';
+import {DashboardComponent} from './dashboard.component';
+import {MainComponent} from './main/main.component';
+import {SideNavComponent} from './side-nav/side-nav.component';
+import {UserProfileComponent} from './user-profile/user-profile.component';
+import {OrdersComponent} from './orders/orders.component';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -39,21 +37,12 @@ import {
   MatSlideToggleModule,
   MatSnackBarModule, MatSortModule,
   MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
-} from "@angular/material";
-import {HttpClientModule} from "@angular/common/http";
-import {AlertModule} from "ngx-bootstrap";
-
+} from '@angular/material';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [DashboardComponent, MainComponent, SideNavComponent, UserProfileComponent, OrdersComponent],
   imports: [
     CommonModule,
-    DashboardModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, 'the-t-makers'),
-    FormsModule,
-    AngularFirestoreModule,
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -89,19 +78,31 @@ import {AlertModule} from "ngx-bootstrap";
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    HttpClientModule,
-    AlertModule.forRoot(),
+    ChartsModule,
     RouterModule.forChild([
       {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
-        path: 'dashboard',
-        loadChildren: './dashboard/dashboard.module#DashboardModule'
+        path: '',
+        component: DashboardComponent,
+        children : [
+          {
+            path: '',
+            component: MainComponent,
+          }
+          ,
+          {
+            path: 'userProfiles',
+            component: UserProfileComponent
+          },
+          {
+            path: 'orders',
+            component: OrdersComponent
+          }
+        ]
       }
     ])
-  ]
+  ],
+  bootstrap: [DashboardComponent],
+  exports : [ChartsModule]
 })
-export class AdminModule {
+export class DashboardModule {
 }

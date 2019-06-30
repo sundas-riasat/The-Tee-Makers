@@ -13,10 +13,13 @@ export class CartComponent implements OnInit {
 
   constructor(public cart: ProductService, user: UserService) {
     this.list = {};
-    setTimeout(() => {
-      this.cart.getCart().then(x => {
-        x.subscribe(dat => {
+    this.cart.getCart().then(x => {
+      x.subscribe(dat => {
+        if (dat == null) {
+          console.log(null);
+        } else {
           this.list = dat;
+          this.products = [];
           for (let i = 0; i < this.list.length; i++) {
             this.cart.getProduct(this.list[i]).then(y => {
               y.subscribe(prod => {
@@ -24,12 +27,21 @@ export class CartComponent implements OnInit {
               });
             });
           }
-        });
+          console.log(this.list);
+          console.log(this.products);
+        }
       });
-    }, 1000);
+    });
   }
 
   ngOnInit() {
   }
 
+  removeFromCart(i) {
+    this.products.splice(i, 1);
+    this.list.splice(i, 1);
+    console.log(this.list);
+    console.log(this.products);
+    this.cart.removeFromCart(i);
+  }
 }
