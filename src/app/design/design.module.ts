@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DoYourTeeComponent } from './do-your-tee/do-your-tee.component';
 import {RouterModule} from '@angular/router';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatCardModule} from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
 import {HttpClientModule} from '@angular/common/http';
 
 
