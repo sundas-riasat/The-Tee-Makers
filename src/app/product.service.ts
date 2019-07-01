@@ -9,12 +9,11 @@ import {UserService} from './user.service';
 export class ProductService {
 
   product: Product;
-  cart: any = [];
+  cart: any;
 
   constructor(private db: AngularFireDatabase, public user: UserService) {
-    this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart').valueChanges().subscribe(y => {
+    this.db.object('usersData/' + this.user.getUserId() + '/cart').valueChanges().subscribe(y => {
       this.cart = y;
-      localStorage.setItem('cart', this.cart);
     });
   }
 
@@ -39,42 +38,15 @@ export class ProductService {
   }
 
   addToCart(id) {
-    const check = JSON.parse('[' + localStorage.getItem('cart') + ']')[0];
-    this.cart = JSON.parse('[' + localStorage.getItem('cart') + ']');
-    if (check !== null) {
-      console.log(this.cart);
-      this.cart.push(id);
-      localStorage.setItem('cart', this.cart);
-    } else {
-      this.cart = [];
-      this.cart.push(id);
-      localStorage.setItem('cart', this.cart);
-      console.log(this.cart);
-    }
-    this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart').update(this.cart);
+    this.cart.push(id);
+    this.db.object('usersData/' + this.user.user.uid + '/cart').update(this.cart);
   }
 
   async getCart() {
-    return this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart').valueChanges();
+    return this.db.object('usersData/' + this.user.getUserId() + '/cart').valueChanges();
   }
 
   async makeOrder(order) {
-    this.cart = [];
-    localStorage.setItem('cart', '');
-    this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart')
-      .remove().then(x => {
-      console.log(x);
-    }).catch(err => {
-      console.log(err);
-    });
     return this.db.list('/orders/').push(order);
-  }
-
-  async removeFromCart(i) {
-    this.cart.splice(i, 1);
-    console.log('IN service:' + this.cart);
-    localStorage.setItem('cart', this.cart);
-  //  this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart/' + i).remove();
-    this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart').set(this.cart);
   }
 }

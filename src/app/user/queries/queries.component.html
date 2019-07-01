@@ -8,7 +8,7 @@
   <div class="row">
     <div class="clm-12">
       <div style="width: 100%; text-align: center">
-        <h2 class="color-blue">Your Queries</h2>
+        <h2>Your Orders</h2>
       </div>
     </div>
   </div>
@@ -20,42 +20,38 @@
           <!-- Cost Column -->
           <ng-container matColumnDef="sr">
             <th mat-header-cell *matHeaderCellDef> Serial No</th>
-            <td mat-cell *matCellDef="let transaction; let i=index"> {{i+1}} </td>
+            <td mat-cell *matCellDef="let transaction"> {{transaction.cost | currency}} </td>
+            <td mat-footer-cell *matFooterCellDef> <h4>Total</h4> </td>
           </ng-container>
           <!-- Cost Column -->
           <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef> Date</th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.date}} </td>
+            <td mat-cell *matCellDef="let transaction"> {{transaction.cost | currency}} </td>
+            <td mat-footer-cell *matFooterCellDef>  </td>
           </ng-container>
           <!-- Cost Column -->
-          <ng-container matColumnDef="msg">
-            <th mat-header-cell *matHeaderCellDef > Message</th>
-            <td mat-cell *matCellDef="let transaction" > {{transaction.message.msg}} </td>
+          <ng-container matColumnDef="details">
+            <th mat-header-cell *matHeaderCellDef > Details</th>
+            <td mat-cell *matCellDef="let transaction" > {{transaction.cost | currency}} </td>
+            <td mat-footer-cell *matFooterCellDef > </td>
           </ng-container>
           <!-- Cost Column -->
-          <ng-container matColumnDef="fname">
-            <th mat-header-cell *matHeaderCellDef>First Name </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.message.fname}} </td>
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price</th>
+            <td mat-cell *matCellDef="let transaction"> {{transaction.cost | currency}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
           </ng-container>
           <!-- Cost Column -->
-          <ng-container matColumnDef="lname">
-            <th mat-header-cell *matHeaderCellDef> Last Name</th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.message.lname}} </td>
-          </ng-container>
-          <!-- Item Column -->
-          <ng-container matColumnDef="phn">
-            <th mat-header-cell *matHeaderCellDef>Phone Number</th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.message.phno}} </td>
-          </ng-container>
-          <!-- Item Column -->
-          <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef>Email</th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.message.email}} </td>
-          </ng-container>
-          <!-- Item Column -->
           <ng-container matColumnDef="status">
-            <th mat-header-cell *matHeaderCellDef>Status</th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.status}} </td>
+            <th mat-header-cell *matHeaderCellDef> Status</th>
+            <td mat-cell *matCellDef="let transaction"> {{transaction.cost | currency}} </td>
+            <td mat-footer-cell *matFooterCellDef>  </td>
+          </ng-container>
+          <!-- Item Column -->
+          <ng-container matColumnDef="exp">
+            <th mat-header-cell *matHeaderCellDef> Expected Delivery</th>
+            <td mat-cell *matCellDef="let transaction"> {{transaction.item}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
           </ng-container>
 
 
@@ -66,6 +62,7 @@
 
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
+          <tr mat-footer-row *matFooterRowDef="displayedColumns" class="example-first-footer-row"></tr>
         </table>
       </div>
 

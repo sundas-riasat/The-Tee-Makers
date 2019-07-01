@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from '../user.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -8,25 +7,18 @@ import {UserService} from '../user.service';
 })
 export class ContactComponent implements OnInit {
   message = {
-    fname: '',
-    lname: '',
-    phno: '',
-    email: '',
-    msg: ''
-  }
-
-  constructor(public user: UserService) {
-  }
+    fname:'',
+    lname:'',
+    phno:'',
+    email:'',
+    msg:''
+    }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  save() {
-    this.user.addMessage({
-      uid: JSON.parse(localStorage.getItem('user')).uid,
-      date: new Date().toLocaleString(),
-      status: 'pending',
-      message: this.message,
-    });
+  save(){
+    console.log(this.message);
   }
 }

@@ -10,7 +10,6 @@ import {User} from 'firebase';
 export class UserService {
   user: User;
   uid: any;
-
   constructor(public  afAuth: AngularFireAuth, public  router: Router, public db: AngularFireDatabase) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -77,21 +76,5 @@ export class UserService {
 
   getUserId() {
     return this.uid;
-  }
-
-  async getUserOrder() {
-    const id = JSON.parse(localStorage.getItem('user')).uid;
-    return await this.db.list('/orders', ref => ref.orderByChild('uid')
-      .equalTo(id)).valueChanges();
-  }
-
-  addMessage(msg) {
-    this.db.list('/messages/').push(msg);
-  }
-
-  async getMessages() {
-    const id = JSON.parse(localStorage.getItem('user')).uid;
-    return await this.db.list('/messages', ref => ref.orderByChild('uid')
-      .equalTo(id)).valueChanges();
   }
 }

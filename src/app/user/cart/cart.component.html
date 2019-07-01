@@ -1,7 +1,7 @@
 <div class="main-content">
   <div class="spacer" style="padding: 10px;"></div>
   <h2 class="color-blue">Cart</h2>
-  <div class="row" style="text-align: left" *ngFor="let item of products; let i=index">
+  <div class="row" style="text-align: left" *ngFor="let item of products">
     <div class="clm-6">
       <div class="cart-item">
         <mat-card>
@@ -15,7 +15,7 @@
               <img class="cart-pic" [src]="item.images" alt="">
             </div>
           </div>
-          <a> <button mat-raised-button color="warn" (click)="removeFromCart(i)"> Remove from Cart</button></a>
+          <a> <button mat-raised-button color="warn"> Remove from Cart</button></a>
         </mat-card>
       </div>
     </div>

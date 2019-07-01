@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../user.service';
 import {ProductService} from '../../product.service';
-import {Router} from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -28,17 +28,13 @@ export class CheckoutComponent implements OnInit {
           this.user = data;
           this.card = this.user.card;
           this.cart = this.user.cart;
-          if (this.cart) {
-            for (let i = 0; i < this.cart.length; i++) {
-              this.prod.getProduct(this.cart[i]).then(y => {
-                y.subscribe(pro => {
-                  this.products.push(pro);
-                  this.total += parseFloat(this.products[i].price);
-                });
+          for (let i = 0; i < this.cart.length; i++) {
+            this.prod.getProduct(this.cart[i]).then(y => {
+              y.subscribe(pro => {
+                this.products.push(pro);
+                this.total += parseFloat(this.products[i].price);
               });
-            }
-          } else {
-            console.log('Cart is empty');
+            });
           }
         });
       });
@@ -57,9 +53,6 @@ export class CheckoutComponent implements OnInit {
     const order: any = {};
     order.uid = this.id;
     order.name = this.user.name;
-    order.date = new Date().toLocaleString();
-    order.status = 'pending';
-    order.total = this.total;
     order.address = {
       country: this.user.country,
       stAdd: this.user.address,

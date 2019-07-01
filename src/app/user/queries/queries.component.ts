@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from "../../user.service";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-queries',
@@ -8,19 +7,17 @@ import {UserService} from "../../user.service";
 })
 export class QueriesComponent implements OnInit {
 
-  displayedColumns: string[] = ['sr', 'date', 'msg', 'fname', 'lname', 'phn', 'email', 'status'];
-  transactions = [];
+  displayedColumns: string[] = ['sr', 'date', 'details', 'price', 'status', 'exp'];
+  transactions = [
+    {item: 'Beach ball', cost: 4},
+    {item: 'Towel', cost: 5},
+    {item: 'Frisbee', cost: 2},
+    {item: 'Sunscreen', cost: 4},
+    {item: 'Cooler', cost: 25},
+    {item: 'Swim suit', cost: 15},
+  ];
 
-  constructor(public user: UserService) {
-    this.user.getMessages().then(x => {
-      x.subscribe(data => {
-        console.log(data);
-        this.transactions = data;
-      });
-    }).catch(err => {
-      console.log(err);
-    });
-  }
+  constructor() { }
 
   ngOnInit() {
   }

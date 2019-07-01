@@ -11,7 +11,7 @@ td{
   vertical-align: top;
 }
 .pre-footer a{
-  color: white !important;
+  color: white;
   margin-top: 5%;
   display: block;
   transition: 0.5s ease-in;
