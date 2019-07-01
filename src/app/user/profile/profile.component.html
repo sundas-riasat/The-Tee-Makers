@@ -4,60 +4,71 @@
   <div class="profile-head">
     <div class="profile-pic shadow">
     </div>
-    <mat-form-field  class="" >
+    <mat-form-field class="">
       <input [disabled]="disabled" [(ngModel)]="tmp.name" style="width: 100%;" matInput placeholder="Username">
     </mat-form-field>
   </div>
-  <div class="row top-up">
-    <div class="clm-6">
-      <div class="container">
-        <mat-form-field  class="example-full-width" >
-          <input [disabled]="disabled" [(ngModel)]="tmp.phone" style="width: 100%;" type="number" matInput placeholder="Phone">
-        </mat-form-field> <br>
-        <mat-form-field class="example-full-width" >
+  <div class="container">
+    <div class="row top-up">
+      <div class="col-2"></div>
+      <div class="col-4">
+        <mat-form-field class="example-full-width">
+          <input [disabled]="disabled" [(ngModel)]="tmp.phone" style="width: 100%;" type="number" matInput
+                 placeholder="Phone">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
           <input [disabled]="disabled" [(ngModel)]="tmp.email" style="width: 100%;" matInput placeholder="Email">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <input [disabled]="disabled" [(ngModel)]="tmp.address" style="width: 100%;" matInput placeholder="Address">
         </mat-form-field>
-        <mat-form-field class="example-full-width" >
-          <input [disabled]="disabled" [(ngModel)]="tmp.city" style="width: 100%;"  matInput type="text" placeholder="City">
+        <mat-form-field class="example-full-width">
+          <input [disabled]="disabled" [(ngModel)]="tmp.city" style="width: 100%;" matInput type="text"
+                 placeholder="City">
         </mat-form-field>
-        <mat-form-field class="example-full-width" >
-          <input [disabled]="disabled" [(ngModel)]="tmp.country" style="width: 100%;"  matInput type="text" placeholder="Country">
+        <mat-form-field class="example-full-width">
+          <input [disabled]="disabled" [(ngModel)]="tmp.country" style="width: 100%;" matInput type="text"
+                 placeholder="Country">
         </mat-form-field>
-        <mat-form-field class="example-full-width" >
-          <input [disabled]="disabled" [(ngModel)]="tmp.zip" style="width: 100%;"  matInput type="number" placeholder="Zip Code">
+        <mat-form-field class="example-full-width">
+          <input [disabled]="disabled" [(ngModel)]="tmp.zip" style="width: 100%;" matInput type="number"
+                 placeholder="Zip Code">
         </mat-form-field>
       </div>
-    </div>
-    <div class="clm-6">
-      <div class="container">
+      <div class="col-4">
         <label for="payment">Choose Payment Method:<br><br></label>
-        <mat-radio-group id="payment" aria-label="Select an option">
+        <mat-radio-group id="payment" aria-label="Select an option"><br>
           <mat-radio-button [disabled]="disabled" value="1">Cash On Delivery</mat-radio-button>
           <mat-radio-button [disabled]="disabled" value="2">Debit Card</mat-radio-button>
         </mat-radio-group>
-        <mat-form-field  class="example-full-width" >
-          <input [(ngModel)]="card.cardno" [disabled]="disabled" style="width: 100%;" type="number" matInput placeholder="Card Number">
-        </mat-form-field> <br>
-        <mat-form-field class="example-full-width" >
-          <input [(ngModel)]="card.expiry" [disabled]="disabled" style="width: 100%;" type="date" matInput placeholder="Expiry Date">
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="card.cardno" [disabled]="disabled" style="width: 100%;" type="number" matInput
+                 placeholder="Card Number">
         </mat-form-field>
-        <mat-form-field class="example-full-width" >
-          <input [(ngModel)]="card.ccv" [disabled]="disabled" style="width: 100%;" matInput type="number" placeholder="CCV">
+        <br>
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="card.expiry" [disabled]="disabled" style="width: 100%;" type="date" matInput
+                 placeholder="Expiry Date">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="card.ccv" [disabled]="disabled" style="width: 100%;" matInput type="number"
+                 placeholder="CCV">
         </mat-form-field>
       </div>
+      <div class="col-2"></div>
+
     </div>
   </div>
-<div class="row top-up" style="transform: translateY(-100%)">
-  <div class="clm-12" style="text-align: center">
-    <a class="btn" (click)="edit()">
-      <button mat-raised-button color="primary">Edit</button>
-    </a>
-    <a class="btn" (click)="save()">
-      <button mat-raised-button color="accent">Save</button>
-    </a>
+
+  <div class="row top-up" style="transform: translateY(-100%)">
+    <div class="col-sm-12" style="text-align: center">
+      <a class="btn" (click)="edit()">
+        <button mat-raised-button color="primary">Edit</button>
+      </a>
+      <a class="btn" (click)="save()">
+        <button mat-raised-button color="accent">Save</button>
+      </a>
+    </div>
   </div>
-</div>
 </div>

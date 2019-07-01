@@ -36,8 +36,7 @@
   transition: 0.4s ease-in;
 }
 .nav-item:hover{
-  color: black;
-  background: #00ADB5;
+  background: #222222;
   transition: 0.4s ease-in;
 }
 
@@ -48,5 +47,13 @@
 
 .logo-holder .logo{
   width: auto;
-  height: 30px;
+  height: 70px;
+  margin: 0 auto;
+}
+p{
+  margin-top: auto !important;
+}
+
+a:hover{
+  transition: 0.2s all ease-in;
 }

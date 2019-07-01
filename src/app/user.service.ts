@@ -45,7 +45,7 @@ export class UserService {
 
   async signup(uname: string, email: string, password: string) {
     try {
-      await this.afAuth.auth. createUserAndRetrieveDataWithEmailAndPassword(email, password);
+      await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
       this.user.updateProfile({displayName: uname});
       this.router.navigate(['/']);
     } catch (e) {

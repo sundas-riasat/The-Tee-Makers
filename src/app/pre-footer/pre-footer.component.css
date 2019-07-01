@@ -4,6 +4,7 @@
   color: white;
   padding-top: 3%;
   padding-bottom: 3%;
+  font-size: small;
 }
 td{
   width: 27%;
@@ -11,13 +12,13 @@ td{
   vertical-align: top;
 }
 .pre-footer a{
-  color: white;
+  color: white !important;
   margin-top: 5%;
   display: block;
   transition: 0.5s ease-in;
 }
 .pre-footer a:hover{
-  color: #F8B500;
+  color: #F8B500 !important;
   font-weight: lighter;
   transition: 0.5s ease-in;
 }

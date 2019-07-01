@@ -24,10 +24,6 @@
   transform: translate(-50%, -50%);
   font-size: 20px;
 }
-.container{
-  margin: 10%;
-  margin-bottom: 1%;
-}
 mat-form-field{
   width: 300px !important;
 }

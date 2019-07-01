@@ -33,3 +33,9 @@ input{
 }
 .card {
 }
+
+mat-card{
+  width: 400px;
+  margin: 0 auto;
+  background: transparent;
+}

@@ -9,6 +9,9 @@ html, body {
   font-family: Tahoma;
   scroll-behavior: smooth;
 }
+body{
+  overflow-x: hidden;
+}
 
 .color-grey {
   color: #393E46;
@@ -61,10 +64,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a:hover {
-  color: #F8B500;
+  color: #F8B500 !important;
   transition: color 0.4s ease;
+  text-decoration: none !important;
 }
-
+a{
+  color: #2B2F34 !important;
+}
 .logo {
   height: 70px;
   margin: 5px;
@@ -77,7 +83,6 @@ a:hover {
 }
 
 .header {
-  height: 80px;
   padding: 10px;
   box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
   background-color: rgba(255, 255, 255, 1);
@@ -154,36 +159,6 @@ a:hover {
   transition: 1s ease;
 }
 
-.row{
-  display: flex;
-  align-content: center;
-  width: 100ch;
-  box-sizing: content-box;
-  overflow: hidden;
-  margin: 0 auto;
-}
-.clm-12{
-  width: 100%;
-  display: flex;
-  align-content: center;
-  padding: 10px;
-}
-.clm-6{
-  width: 50%;
-  display: inline-block;
-}
-.clm-4{
-  width: 25%;
-  display: inline-block;
-}
-.clm-2{
-  width: 16.65%;
-  display: inline-block;
-}
-.clm-1{
-  width: 8.32%;
-  display: inline-block;
-}
 .flex{
   display: flex;
   width: 100%;
