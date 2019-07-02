@@ -38,8 +38,8 @@ export class SingleProductComponent implements OnInit {
     });
   }
 
-  addToCart() {
-    this.productService.addToCart(this.id);
+  addToCart(prod) {
+    this.productService.addToCart(prod);
   }
 
   ngOnInit() {

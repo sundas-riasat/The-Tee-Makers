@@ -1,1 +1,43 @@
+<div class="container">
+    <div class="spacer"></div>
+    <div class="row" style="margin-left: 20px">
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Date</th>
+                    <th>Details</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  *ngFor="let order of orders; let i=index">
+                    <td (click)="openDialog(i)">{{keys[i]}}</td>
+                    <td (click)="openDialog(i)">{{order.date}}</td>
+                    <td (click)="openDialog(i)">{{order.detail}}</td>
+                    <td (click)="openDialog(i)">{{order.total}} $</td>
+                    <td (click)="openDialog(i)">{{order.status}}</td>
+                    <td>
+                        <a (click)="sentOut(i)">
+                            <button mat-raised-button color="accent"> Sent out</button>
+                        </a>
+                        <a (click)="done(i)">
+                            <button mat-raised-button color="primary"> Done</button>
+                        </a>
+                        <a (click)="canceled(i)">
+                            <button mat-raised-button color="warn"> Canceled</button>
+                        </a>
+                    </td>
+                    <td>
 
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

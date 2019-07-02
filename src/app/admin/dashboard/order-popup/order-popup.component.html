@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="rwo">
+        <div class="col-12">
+            <h5>{{data.id}}</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6"><b>Name: </b> {{data.order.name}}</div>
+        <div class="col-6"><b>Date: </b>{{data.order.date}}</div>
+
+    </div>
+    <div class="row">
+        <div class="col-6"><b>Detail: </b> {{data.order.detail}}</div>
+        <div class="col-6"><b>Total: </b> {{data.order.total}} $</div>
+    </div>
+    <div class="row">
+        <div class="col-6"><b>Status: </b> {{data.order.status}}</div>
+        <div class="col-6"><b>UserId: </b> {{data.order.uid}}</div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p><b>Cart Items:</b></p>
+            <div class="row" style="width: 100%">
+                <div class="col-12">
+                    <table class="table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                Size
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Color
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let prod of data.order.cart">
+                            <td>{{prod.id ? prod.id : null}}</td>
+                            <td>{{prod.price}} $</td>
+                            <td>{{prod.size}}</td>
+                            <td>{{prod.title}}</td>
+                            <td>{{prod.color}}:
+                                <div [style]="'background:'+prod.color+'; height:20px; width:40px;'"></div>
+                            </td>
+                            <td><img height="70px" [src]="prod.images" alt=""></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p><b>Payment Method: </b>{{data.order.card ? "Card" : "Cash On Delivery"}} </p>
+        </div>
+    </div>
+    <div *ngIf="!data.order.card" class="row">
+        <div class="col-12">
+            <p><b>Address: </b></p> <br>
+            <ul>
+                <li><b>Street Address: </b>{{data.order.address.stAdd}}</li>
+                <li><b>City: </b>{{data.order.address.city}}</li>
+                <li><b>Country: </b>{{data.order.address.country}}</li>
+                <li><b>Zip: </b>{{data.order.address.zip}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <a (click)="onNoClick()">
+                <button mat-raised-button color="accent"> Okay</button>
+            </a>
+            <a (click)="onNoClick()">
+                <button mat-raised-button color="warn"> Cancel</button>
+            </a>
+        </div>
+    </div>
+</div>

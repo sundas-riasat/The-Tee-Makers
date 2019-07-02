@@ -8,28 +8,27 @@ import {UserService} from '../../user.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  list: any;
-  products = [];
+  products: any = [];
 
   constructor(public cart: ProductService, user: UserService) {
-    this.list = {};
-    setTimeout(() => {
-      this.cart.getCart().then(x => {
-        x.subscribe(dat => {
-          this.list = dat;
-          for (let i = 0; i < this.list.length; i++) {
-            this.cart.getProduct(this.list[i]).then(y => {
-              y.subscribe(prod => {
-                this.products.push(prod);
-              });
-            });
-          }
-        });
+    this.cart.getCart().then(x => {
+      x.subscribe(dat => {
+        if (dat == null) {
+          console.log(null);
+        } else {
+          this.products = dat;
+          console.log(this.products);
+        }
       });
-    }, 1000);
+    });
   }
 
   ngOnInit() {
   }
 
+  removeFromCart(i) {
+    this.products.splice(i, 1);
+    console.log(this.products);
+    this.cart.removeFromCart(i);
+  }
 }

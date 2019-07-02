@@ -1,8 +1,8 @@
-<div class="main-content">
+<div class="main-content container">
   <div class="spacer" style="padding: 10px"></div>
   <h2 class="color-blue" style="text-align: center">Checkout</h2><br><br>
   <div class="row">
-    <div class="clm-6">
+    <div class="col-6">
       <p><b>Billing Details:</b></p>
       <mat-form-field class="example-full-width" style="width: 70%;">
         <input style="width: 100%;" [(ngModel)]="user.name"  type="text" matInput placeholder="First Name">
@@ -37,7 +37,7 @@
         <mat-radio-button (click)="disable(true)" class="bg-grey" value="false">Cash On Delivery</mat-radio-button>
       </mat-radio-group>
     </div>
-    <div class="clm-6">
+    <div class="col-6">
       <mat-card>
         <h4>Cart Summary</h4>
         <table>
