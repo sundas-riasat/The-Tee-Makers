@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="spacer"></div>
+  <div class="row" style="margin-left: 20px">
+      <div class="col-12">
+          <table class="table table-hover">
+              <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Status</th>
+                  <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr  *ngFor="let message of messages; let i=index">
+                  <td (click)="openDialog(i)">{{keys[i]}}</td>
+                  <td (click)="openDialog(i)">{{message.date | date}}</td>
+                  <td (click)="openDialog(i)">{{message.message.fname}} {{message.message.lname}}</td>
+                  <td (click)="openDialog(i)">{{message.message.email}}</td>
+                  <td (click)="openDialog(i)">{{message.message.phno}}</td>
+                  <td (click)="openDialog(i)">{{message.status}}</td>
+                  <td>
+                      <a (click)="replied(i)">
+                          <button mat-raised-button color="accent"> Replied</button>
+                      </a><br>
+                      <a (click)="resolved(i)">
+                          <button mat-raised-button color="primary">Resolved</button>
+                      </a><br>
+                      <a (click)="ignored(i)">
+                          <button mat-raised-button color="warn">Ignored</button>
+                      </a>
+                  </td>
+
+              </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

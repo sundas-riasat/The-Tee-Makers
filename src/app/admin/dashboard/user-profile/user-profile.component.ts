@@ -1,3 +1,4 @@
+import { AdminService } from './../admin.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  email;
+  constructor(private adminService: AdminService) { }
 
   ngOnInit() {
   }
 
+  findUser(){
+    this.adminService.findUser(this.email);
+  }
 }

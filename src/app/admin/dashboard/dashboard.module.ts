@@ -1,3 +1,4 @@
+import { ToastrModule } from 'ngx-toastr';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
@@ -43,9 +44,24 @@ import {MatTreeModule} from '@angular/material/tree';
 import {AdminService} from './admin.service';
 import { OrderPopupComponent } from './order-popup/order-popup.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { FormsModule } from '@angular/forms';
+import { MessagesComponent } from './messages/messages.component';
+import { DesignsComponent } from './designs/designs.component';
+import { ChartsModule } from 'ng2-charts';
+import { MessagePopupComponent } from './message-popup/message-popup.component';
 
 @NgModule({
-    declarations: [DashboardComponent, MainComponent, SideNavComponent, UserProfileComponent, OrdersComponent, OrderPopupComponent, TopBarComponent],
+    declarations: [DashboardComponent,
+      MainComponent,
+      SideNavComponent,
+      UserProfileComponent,
+      OrdersComponent,
+      OrderPopupComponent,
+      TopBarComponent,
+      MessagesComponent,
+      DesignsComponent,
+      MessagePopupComponent
+    ],
     imports: [
         CommonModule,
         MatAutocompleteModule,
@@ -83,6 +99,9 @@ import { TopBarComponent } from './top-bar/top-bar.component';
         MatToolbarModule,
         MatTooltipModule,
         MatTreeModule,
+        FormsModule,
+        ChartsModule,
+        ToastrModule.forRoot(),
         RouterModule.forChild([
             {
                 path: '',
@@ -100,6 +119,14 @@ import { TopBarComponent } from './top-bar/top-bar.component';
                     {
                         path: 'orders',
                         component: OrdersComponent
+                    },
+                    {
+                        path: 'messages',
+                        component: MessagesComponent
+                    },
+                    {
+                        path: 'designs',
+                        component: DesignsComponent
                     }
                 ]
             }
@@ -110,7 +137,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     providers: [
         AdminService
     ],
-    entryComponents: [OrderPopupComponent]
+    entryComponents: [OrderPopupComponent, MessagePopupComponent]
 })
 export class DashboardModule {
 }

@@ -12,8 +12,7 @@ export class AppComponent {
   title = 'the-t-makers';
   showHeader = true;
 
-  constructor(user: UserService, prod: ProductService, router: Router) {
-    prod.getCart();
+  constructor(user: UserService, router: Router) {
     console.log('Is User LoggedIn: ' + user.isLoggedIn());
     user.getUser().then(data => {
       data.subscribe(x => {

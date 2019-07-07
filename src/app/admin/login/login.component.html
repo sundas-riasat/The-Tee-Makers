@@ -11,14 +11,14 @@
       <div class="row">
         <div class="col-12" style="width: 40%;margin: 0 auto">
           <mat-form-field class="example-full-width" >
-            <input #uname style="width: 100%;" matInput placeholder="Username">
+            <input [(ngModel)]="email" style="width: 100%;" matInput placeholder="Username">
           </mat-form-field>
           <br><br>
           <mat-form-field class="example-full-width" >
-            <input #pass style="width: 100%;" type="password" matInput placeholder="Password">
+            <input [(ngModel)]="pass" style="width: 100%;" type="password" matInput placeholder="Password">
           </mat-form-field>
           <br>
-          <a class="btn" (click)="auth.login(uname.value, pass.value)">
+          <a class="btn" (click)="login()">
             <button mat-raised-button color="accent">Login</button>
           </a>
         </div>

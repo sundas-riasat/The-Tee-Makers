@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AdminService} from '../admin.service';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {OrderPopupComponent} from '../order-popup/order-popup.component';
 
 @Component({

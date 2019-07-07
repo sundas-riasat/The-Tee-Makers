@@ -5,4 +5,9 @@
     background: #2B2F34;
     color:wheat;
     width: 100%;
+    z-index: 10000;
+}
+
+.nav-item{
+  margin-top: 10px;
 }

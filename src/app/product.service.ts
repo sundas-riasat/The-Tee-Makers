@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {AngularFireDatabase} from '@angular/fire/database';
-import {Product} from './models/product';
-import {UserService} from './user.service';
+import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Product } from './models/product';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,12 @@ export class ProductService {
   cart: any = [];
 
   constructor(private db: AngularFireDatabase, public user: UserService) {
-    this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart').valueChanges().subscribe(y => {
-      this.cart = y;
-      localStorage.setItem('cart', this.cart);
-    });
+    if (localStorage.getItem('user') !== 'null') {
+      this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart').valueChanges().subscribe(y => {
+        this.cart = y;
+        localStorage.setItem('cart', this.cart);
+      });
+    }
   }
 
   getProducts() {
@@ -63,10 +65,10 @@ export class ProductService {
     localStorage.setItem('cart', '');
     this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart')
       .remove().then(x => {
-      console.log(x);
-    }).catch(err => {
-      console.log(err);
-    });
+        console.log(x);
+      }).catch(err => {
+        console.log(err);
+      });
     return this.db.list('/orders/').push(order);
   }
 
@@ -74,7 +76,6 @@ export class ProductService {
     this.cart.splice(i, 1);
     console.log('IN service:' + this.cart);
     localStorage.setItem('cart', this.cart);
-  //  this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart/' + i).remove();
     this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart').set(this.cart);
   }
 }

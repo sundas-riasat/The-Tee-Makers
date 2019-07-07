@@ -1,5 +1,7 @@
+import { AdminService } from './../dashboard/admin.service';
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../auth.service";
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,10 +10,20 @@ import {AuthService} from "../auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  email;
+  pass;
+  constructor(public admin: AdminService, public toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
   }
 
+  login() {
+    this.admin.login(this.email, this.pass).then(x => {
+      this.toastr.success('You are now successfully logged in', 'Login Attempt Successful');
+      this.router.navigateByUrl('/admin');
 
+    }).catch(err => {
+      this.toastr.error(err.message, err.code);
+    });
+  }
 }

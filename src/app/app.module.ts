@@ -1,3 +1,4 @@
+import { MainComponent } from './main/main.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
@@ -55,6 +56,7 @@ import {SingleProductComponent} from './single-product/single-product.component'
 import {HttpClientModule} from '@angular/common/http';
 import {ProductService} from './product.service';
 import {UserService} from './user.service';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,8 @@ import {UserService} from './user.service';
     ShopComponent,
     ContactComponent,
     PreFooterComponent,
-    SingleProductComponent
+    SingleProductComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -112,6 +115,7 @@ import {UserService} from './user.service';
     MatTreeModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
     AlertModule.forRoot(),
     RouterModule.forRoot([
       {
