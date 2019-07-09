@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {User} from 'firebase';
 import { ToastrService } from 'ngx-toastr';
+import { auth } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -93,5 +94,29 @@ export class UserService {
     const id = JSON.parse(localStorage.getItem('user')).uid;
     return await this.db.list('/messages', ref => ref.orderByChild('uid')
       .equalTo(id)).valueChanges();
+  }
+
+  loginWithGoogle(){
+    this.afAuth.auth.signInWithRedirect(new auth.GoogleAuthProvider()).then(() => {
+      this.afAuth.auth.getRedirectResult().then(result => {
+        this.toastr.success('You are now logged in with Google.', 'Login Successful' );
+        console.log('auth result', result);
+      }).catch(error => {
+        this.toastr.error(error.message, 'Error Authenticating');
+        console.log('auth error', error);
+      });
+    });
+  }
+
+  loginWithFacebook(){
+    this.afAuth.auth.signInWithRedirect(new auth.FacebookAuthProvider()).then(() => {
+      this.afAuth.auth.getRedirectResult().then(result => {
+        this.toastr.success('You are now logged in with Facebook.', 'Login Successful' );
+        console.log('auth result', result);
+      }).catch(error => {
+        this.toastr.error(error.message, 'Error Authenticating');
+        console.log('auth error', error);
+      });
+    });
   }
 }

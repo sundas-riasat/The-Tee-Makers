@@ -3,17 +3,23 @@
   width: 100%;
   overflow: hidden;
 }
-.row{
+.design-header{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: max-content;
+  z-index: 1000;
+  position: relative;
+  padding: 10px;
+}
 
+.design-header a{
+  margin: 0 auto !important;
 }
-.icon{
-  height: 40px;
-
-}
-.btn{
-  width: 200px;
-  background-color: #00ADB5;
-}
+ .icon{
+   height: 40px;
+ }
 .side-pan{
   width: 150px;
   height: 85vh;
@@ -60,7 +66,7 @@ h2{
 }
 .pop-card{
   position: absolute;
-  top: 100px;
+  top: 70px;
   width: 80%;
   left: 200px;
   overflow: hidden;

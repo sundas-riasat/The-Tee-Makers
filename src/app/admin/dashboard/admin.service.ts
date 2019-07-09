@@ -32,6 +32,6 @@ export class AdminService {
     return this.db.list('orders', ref => ref.orderByChild('status').equalTo(key) ).valueChanges();
   }
   login(email, pass){
-   return this.auth.auth.createUserWithEmailAndPassword(email, pass);
+   return this.auth.auth.signInWithEmailAndPassword(email, pass);
   }
 }

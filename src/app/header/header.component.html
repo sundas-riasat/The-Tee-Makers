@@ -1,13 +1,17 @@
 <div class="header">
   <a href="#">
-    <img class="logo" src="assets/images/icon-logo.png" alt="" srcset="">
+    <img class="logo" src="assets/images/icon-logo.png" alt="" srcset="" />
   </a>
   <div class="menu">
     <ul class="menu-list">
       <a href="/design/dyt">
         <li routerLinkActive="color-yellow">Do Your Tee</li>
       </a>
-      <a routerLink="/" routerLinkActive="color-yellow" [routerLinkActiveOptions]="{exact: true}">
+      <a
+        routerLink="/"
+        routerLinkActive="color-yellow"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <li>Home</li>
       </a>
       <a routerLink="/shop" routerLinkActive="color-yellow">
@@ -22,13 +26,21 @@
     </ul>
 
     <a *ngIf="!user.isLoggedIn()" class="btn" routerLink="/user/login">
-      <button mat-stroked-button><img class="icon" src="https://img.icons8.com/material/24/000000/user-male.png"> Login
+      <button mat-stroked-button>
+        <img
+          class="icon"
+          src="https://img.icons8.com/material/24/000000/user-male.png"
+        />
+        Login
       </button>
     </a>
-    <a *ngIf="user.isLoggedIn()" >
-      <button mat-stroked-button [matMenuTriggerFor]="animals"><img class="icon"
-                                                                    src="https://img.icons8.com/material/24/000000/user-male.png">
-        {{username? username:"Username"}}
+    <a *ngIf="user.isLoggedIn()">
+      <button mat-stroked-button [matMenuTriggerFor]="animals">
+        <img
+          class="icon"
+          src="https://img.icons8.com/material/24/000000/user-male.png"
+        />
+        {{ username ? username : "Username" }}
       </button>
       <mat-menu #animals="matMenu">
         <button mat-menu-item routerLink="/user/profile">Profile</button>
@@ -39,5 +51,30 @@
         <button mat-menu-item (click)="user.logout()">Logout</button>
       </mat-menu>
     </a>
+  </div>
+</div>
+
+<div class="header-mob container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-xs-4">
+      <img
+        style="height:50px;"
+        src="https://img.icons8.com/plasticine/100/000000/squared-menu.png"
+      />
+    </div>
+    <div class="col-sm-4 col-xs-4">
+      <a href="#">
+        <img
+          class="logo"
+          style="height: 50px"
+          src="assets/images/icon-logo.png"
+          alt=""
+          srcset=""
+        />
+      </a>
+    </div>
+    <div class="col-sm-4 col-xs-4">
+      <img />
+    </div>
   </div>
 </div>

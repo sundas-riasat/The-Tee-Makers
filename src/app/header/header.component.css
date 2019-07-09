@@ -1,0 +1,13 @@
+@media screen and (max-width: 680px) {
+  .header{
+    display: none;
+  }
+  .header-mob{
+    display: block !important;
+  }
+}
+
+.header-mob{
+  display: none;
+  height: fit-content;
+}
