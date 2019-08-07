@@ -1,6 +1,5 @@
 .main-content {
   text-align: center;
-  margin: 30px;
 }
 
 .example-card {
@@ -8,7 +7,7 @@
   background-color: #393E46;
   text-align: left;
   color: white;
-  margin: 0.5%;
+  margin: 15px;
   display: inline-block;
 }
 

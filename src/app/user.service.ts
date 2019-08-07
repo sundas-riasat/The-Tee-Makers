@@ -29,15 +29,18 @@ export class UserService {
     try {
       await this.afAuth.auth.signInWithEmailAndPassword(email, password);
       this.router.navigate(['/']);
+      this.toastr.success('You have successfully logged into the system. Enjoy designing.' , 'Login Successful');
     } catch (e) {
       this.toastr.error(e.message, e.code);
+      this.toastr.error('Couldnt login for unknown reasons. Check your internet connectivity and try again.', 'Login Failed');
     }
   }
 
   async logout() {
     await this.afAuth.auth.signOut();
-    localStorage.removeItem('user');
+    localStorage.clear();
     this.router.navigate(['/']);
+    this.toastr.success('You have successfully logged out of the system. We hope to see you soon.' , 'Logout Successful');
   }
 
   isLoggedIn(): boolean {
@@ -49,9 +52,10 @@ export class UserService {
     try {
       await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
       this.user.updateProfile({displayName: uname});
-      this.router.navigate(['/']);
+      this.router.navigate(['/user/profile']);
+      this.toastr.success('Please fill in your details and complete your profile.' , 'Signup Successful');
     } catch (e) {
-      alert('Error!' + e.message);
+      this.toastr.error('Couldnt sign up for unknown reasons. Check your internet connectivity and try again.', 'Signup Failed');
     }
   }
 
@@ -65,9 +69,9 @@ export class UserService {
         this.db.object('/usersData/' + data.uid).update(obj);
         this.user.updateProfile({displayName: obj.name, photoURL: obj.dp});
         this.user.updateEmail(obj.email);
-        window.alert('Profile Succesfully Updated');
+        this.toastr.success('Your data has been successfully saved.' , 'Data Saving Successful');
       }, err => {
-        window.alert('Error: ' + err);
+        this.toastr.error('Couldnt save data for unknown reasons. Check your internet connectivity and try again.', 'Request Failed');
       });
     });
   }
@@ -77,7 +81,7 @@ export class UserService {
   }
 
   getUserId() {
-    return this.uid;
+    return this.uid ? this.uid : null;
   }
 
   async getUserOrder() {
@@ -87,7 +91,7 @@ export class UserService {
   }
 
   addMessage(msg) {
-    this.db.list('/messages/').push(msg);
+    return this.db.list('/messages/').push(msg);
   }
 
   async getMessages() {
@@ -100,7 +104,6 @@ export class UserService {
     this.afAuth.auth.signInWithRedirect(new auth.GoogleAuthProvider()).then(() => {
       this.afAuth.auth.getRedirectResult().then(result => {
         this.toastr.success('You are now logged in with Google.', 'Login Successful' );
-        console.log('auth result', result);
       }).catch(error => {
         this.toastr.error(error.message, 'Error Authenticating');
         console.log('auth error', error);
@@ -119,4 +122,5 @@ export class UserService {
       });
     });
   }
+
 }

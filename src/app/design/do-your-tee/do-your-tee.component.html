@@ -1,19 +1,31 @@
 <div class="main bg-grey">
+    <button style="position: absolute; left:90%; top:20%;" mat-raised-button color="primary" (click)="undo()">
+       Undo
+      </button>
   <div class="design-header shadow bg-white">
-        <a href="/"
-          ><img class="icon" src="../../../assets/images/back-nav.png" alt=""
-        /></a>
-        <a href="/"
-          ><img class="logo" src="../../../assets/images/icon-logo.png" alt=""
-        /></a>
-        <a href="">
-          <button mat-raised-button color="accent">Continue to Cart</button>
-        </a>
+    <a href="/"
+      ><img class="icon" src="../../../assets/images/back-nav.png" alt=""
+    /></a>
+    <a href="/"
+      ><img class="logo" src="../../../assets/images/icon-logo.png" alt=""
+    /></a>
+    <a>
+      <button mat-raised-button color="accent" (click)="saveDesign()">
+        Proceed
+      </button>
+    </a>
   </div>
   <mat-card class="pop-card" id="color">
-    <div class="cp bg-blue"></div>
-    <div class="cp bg-grey"></div>
-    <div class="cp bg-yellow"></div>
+    <div class="cp bg-blue" (click)="color('blue')"></div>
+    <div class="cp bg-grey" (click)="color('grey')"></div>
+    <div class="cp bg-Lavender" (click)="color('lavender')"></div>
+    <div class="cp bg-Magenta" (click)="color('magenta')"></div>
+    <div class="cp bg-MediumOrchid" (click)="color('mediumOrchild')"></div>
+    <div class="cp bg-Indigo" (click)="color('indigo')"></div>
+    <div class="cp bg-Navy" (click)="color('navy')"></div>
+    <div class="cp bg-DeepSkyBlue" (click)="color('deepSkyBlue')"></div>
+    <div class="cp bg-SteelBlue" (click)="color('steelBlue')"></div>
+    <div class="cp bg-Brown" (click)="color('brown')"></div>
   </mat-card>
   <div class="flex">
     <div class="side-pan bg-white">
@@ -24,42 +36,218 @@
           /></a>
           <p>Color</p>
         </div>
-        <div class="drawer shadow">
-          <a
+        <div class="drawer">
+          <a [matMenuTriggerFor]="menuSize"
             ><img class="icon" src="../../../assets/images/size.png" alt=""
           /></a>
           <p>Size</p>
         </div>
-        <div class="drawer ">
-          <a
-            ><img class="icon" src="../../../assets/images/design.png" alt=""
-          /></a>
-          <p>Design</p>
-        </div>
+        <mat-menu #menuSize="matMenu">
+          <button mat-menu-item (click)="setSize('extraSmall')">
+            Extra Small
+          </button>
+          <button mat-menu-item (click)="setSize('small')">Small</button>
+          <button mat-menu-item (click)="setSize('medium')">Medium</button>
+          <button mat-menu-item (click)="setSize('large')">Large</button>
+          <button mat-menu-item (click)="setSize('extraLarge')">
+            Extra Large
+          </button>
+        </mat-menu>
         <div class="drawer">
-          <a
+          <a [matMenuTriggerFor]="menuType"
             ><img class="icon" src="../../../assets/images/type.png" alt=""
           /></a>
           <p>Type</p>
         </div>
+        <mat-menu #menuType="matMenu">
+          <button mat-menu-item (click)="setType('male')">
+            <img
+              class="icon"
+              src="../../../assets/images/shirt-types/Asset 1.png"
+              alt=""
+              style="display: inline"
+            />
+            <p style="display: inline; margin: 5px;">Male Tee</p>
+          </button>
+          <button mat-menu-item (click)="setType('hoodie')">
+            <img
+              class="icon"
+              src="../../../assets/images/shirt-types/Asset 2.png"
+              alt=""
+              style="display: inline"
+            />
+            <p style="display: inline; margin: 5px;">Hoodie</p>
+          </button>
+          <button mat-menu-item (click)="setType('female')">
+            <img
+              class="icon"
+              src="../../../assets/images/shirt-types/Asset 3.png"
+              alt=""
+              style="display: inline"
+            />
+            <p style="display: inline; margin: 5px;">Female Tee</p>
+          </button>
+          <button mat-menu-item (click)="setType('polo')">
+            <img
+              class="icon"
+              src="../../../assets/images/shirt-types/Asset 4.png"
+              alt=""
+              style="display: inline"
+            />
+            <p style="display: inline; margin: 5px;">Polo</p>
+          </button>
+        </mat-menu>
         <div class="drawer ">
-          <a
+          <a (click)="openUp('text')"
             ><img class="icon" src="../../../assets/images/text-type.png" alt=""
           /></a>
           <p>Text</p>
         </div>
+        <mat-card class="pop-card text-card" id="text">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Text" [(ngModel)]="text" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Font</mat-label>
+            <mat-select [(ngModel)]="font">
+              <mat-option *ngFor="let font of fonts" [value]="font.value">
+                {{ font.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Text Placement</mat-label>
+            <mat-select [(ngModel)]="placement">
+              <mat-option *ngFor="let font of placements" [value]="font.value">
+                {{ font.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Color</mat-label>
+            <mat-select [(ngModel)]="fontColor">
+              <mat-option *ngFor="let color of textColor" [value]="color.val">
+                <div
+                  class="shadow"
+                  [ngStyle]="{
+                    width: '20px',
+                    height: '20px',
+                    'background-color': color.value,
+                    display: 'inline-block'
+                  }"
+                ></div>
+                {{ color.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <a (click)="setText()">
+            <button mat-raised-button color="accent" type="button">
+              Done
+            </button>
+          </a>
+          <a (click)="openUp('text')">
+            <button mat-raised-button color="warn" type="button">
+              Cancel
+            </button>
+          </a>
+        </mat-card>
         <div class="drawer">
-          <a
+          <a [matMenuTriggerFor]="menuVectors"
             ><img class="icon" src="../../../assets/images/vectors.png" alt=""
           /></a>
           <p>Vectors</p>
         </div>
+        <mat-menu #menuVectors="matMenu">
+          <div class="uploader">
+            <p>Upload: <input class="inp-upload" type="file" (change)="upload($event)" /></p>
+          </div>
+
+          <button mat-menu-item (click)="mask(1)">
+            <img src="../../../assets/server/raw/vectors/1@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(2)">
+            <img src="../../../assets/server/raw/vectors/2@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(3)">
+            <img src="../../../assets/server/raw/vectors/3@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(4)">
+            <img src="../../../assets/server/raw/vectors/4@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(5)">
+            <img src="../../../assets/server/raw/vectors/5@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(6)">
+            <img src="../../../assets/server/raw/vectors/6@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(7)">
+            <img src="../../../assets/server/raw/vectors/7@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(8)">
+            <img src="../../../assets/server/raw/vectors/8@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(9)">
+            <img src="../../../assets/server/raw/vectors/9@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(10)">
+            <img src="../../../assets/server/raw/vectors/10@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(11)">
+            <img src="../../../assets/server/raw/vectors/11@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(12)">
+            <img src="../../../assets/server/raw/vectors/12@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(13)">
+            <img src="../../../assets/server/raw/vectors/13@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(14)">
+            <img src="../../../assets/server/raw/vectors/14@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(15)">
+            <img src="../../../assets/server/raw/vectors/15@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(16)">
+            <img src="../../../assets/server/raw/vectors/16@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(17)">
+            <img src="../../../assets/server/raw/vectors/17@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(18)">
+            <img src="../../../assets/server/raw/vectors/18@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(19)">
+            <img src="../../../assets/server/raw/vectors/19@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(20)">
+            <img src="../../../assets/server/raw/vectors/20@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(21)">
+            <img src="../../../assets/server/raw/vectors/21@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(22)">
+            <img src="../../../assets/server/raw/vectors/22@4x.png" alt="" />
+          </button>
+          <button mat-menu-item (click)="mask(23)">
+            <img src="../../../assets/server/raw/vectors/23@4x.png" alt="" />
+          </button>
+        </mat-menu>
       </div>
     </div>
     <div class="display">
       <div class="view">
-        <img id="shirt" src="../../../assets/images/shirt.png" alt="" />
+        <img id="shirt" [src]="api.src" alt="" />
       </div>
     </div>
   </div>
 </div>
+
+<ngx-spinner
+  bdOpacity="0.9"
+  bdColor="#393E46"
+  size="large"
+  color="#F8B500"
+  type="ball-fall"
+  [fullScreen]="true"
+>
+</ngx-spinner>

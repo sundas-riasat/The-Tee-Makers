@@ -1,4 +1,5 @@
 import { MainComponent } from './main/main.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
@@ -72,6 +73,7 @@ import { ToastrModule } from 'ngx-toastr';
     MainComponent
   ],
   imports: [
+    NgxSpinnerModule,
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'the-t-makers'),
     FormsModule,

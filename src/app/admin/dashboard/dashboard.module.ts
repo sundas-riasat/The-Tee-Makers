@@ -49,6 +49,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { DesignsComponent } from './designs/designs.component';
 import { ChartsModule } from 'ng2-charts';
 import { MessagePopupComponent } from './message-popup/message-popup.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
     declarations: [DashboardComponent,
@@ -64,6 +65,7 @@ import { MessagePopupComponent } from './message-popup/message-popup.component';
     ],
     imports: [
         CommonModule,
+        NgxSpinnerModule,
         MatAutocompleteModule,
         MatBadgeModule,
         MatBottomSheetModule,

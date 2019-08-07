@@ -24,7 +24,12 @@ export class AppComponent {
       const routeVal = events.toString();
       if (routeVal.indexOf('NavigationEnd') !== -1) {
         if (routeVal.indexOf('admin') !== -1 || routeVal.indexOf('design') !== -1) {
-          this.showHeader = false;
+          if(routeVal.indexOf('user') !== -1 && routeVal.indexOf('design') !== -1){
+            this.showHeader = true;
+          }
+          else{
+            this.showHeader = false;
+          }
         } else {
           this.showHeader = true;
         }

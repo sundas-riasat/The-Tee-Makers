@@ -1,0 +1,13 @@
+<p>Price: {{data.price}} $</p>
+<mat-form-field class="example-full-width">
+    <textarea matInput required placeholder="Title" [(ngModel)]="data.title"></textarea>
+</mat-form-field>
+<mat-form-field class="example-full-width">
+    <textarea matInput required placeholder="Description" [(ngModel)]="data.desc"></textarea>
+</mat-form-field> <br>
+<a >
+    <button mat-raised-button color="accent" type="button" [mat-dialog-close]="data">Done</button>
+</a>
+<a >
+    <button mat-raised-button color="warn" type="button" (click)="onNoClick()">Cancel</button>
+</a>

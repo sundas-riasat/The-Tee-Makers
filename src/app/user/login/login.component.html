@@ -15,7 +15,7 @@
     </mat-form-field>
     <br><br>
     <div style="display: flex; width: 70%;justify-content: space-evenly; margin: 0 auto;">
-      <a class="btn" (click)="auth.login(email.value, pass.value)">
+      <a class="btn" (click)="login(email.value, pass.value)">
         <button mat-raised-button color="accent">Login</button>
       </a>
     </div>
@@ -54,10 +54,19 @@
     </mat-form-field>
     <br><br>
     <div style="display: flex; width: 70%;justify-content: space-evenly; margin: 0 auto;">
-      <a (click)="auth.signup(uname.value, semail.value, spass.value)">
+      <a (click)="signup(uname.value, semail.value, spass.value)">
         <button mat-raised-button color="accent">Signup</button>
       </a>
     </div>
     <br>
   </div>
 </div>
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "#393E46"
+size = "large"
+color = "#F8B500"
+type = "ball-fall"
+[fullScreen] = "true"
+>
+</ngx-spinner>

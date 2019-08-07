@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '../../../node_modules/@angular/router';
 import { DashboardModule } from './dashboard/dashboard.module';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 //components
 
 import {LoginComponent} from './login/login.component';
@@ -49,6 +49,7 @@ import { MatTreeModule } from '@angular/material/tree';
     LoginComponent
   ],
   imports: [
+    NgxSpinnerModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,

@@ -9,7 +9,7 @@
         standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
         type specimen book.
       </p><br><br>
-      <a href="" ><button mat-stroked-button><img src="https://img.icons8.com/material-outlined/24/000000/east-direction.png" color="primary"> Let's Go</button></a>
+      <a [routerLink]="['/design/dyt']"  ><button mat-stroked-button><img src="https://img.icons8.com/material-outlined/24/000000/east-direction.png" color="primary"> Let's Go</button></a>
     </div>
   </div>
   <div class="spacer"></div>
@@ -65,3 +65,13 @@
   <a class="btn"><button mat-raised-button color="accent"><img src="https://img.icons8.com/material-outlined/24/000000/design--v1.png"> Let's Go</button></a>
 </div>
 
+
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "#393E46"
+size = "large"
+color = "#F8B500"
+type = "ball-fall"
+[fullScreen] = "true"
+>
+</ngx-spinner>

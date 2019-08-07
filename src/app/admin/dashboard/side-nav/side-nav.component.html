@@ -10,12 +10,6 @@
         <p>Dashboard</p>
       </div>
     </a>
-    <a routerLink="userProfiles" routerLinkActive="active-item">
-      <div class="nav-item">
-        <img class="icon" src="https://img.icons8.com/material-outlined/24/000000/user-group-man-man.png">
-        <p>User Profiles</p>
-      </div>
-    </a>
     <a routerLink="orders" routerLinkActive="active-item">
       <div class="nav-item">
         <img class="icon" src="https://img.icons8.com/material-outlined/24/000000/create-order.png">
@@ -34,7 +28,7 @@
         <p>Designs</p>
       </div>
     </a>
-    <a href="" routerLinkActive="active-item">
+    <a (click)="logout()" routerLinkActive="active-item">
         <div class="nav-item">
           <img class="icon" src="https://img.icons8.com/material-outlined/50/000000/logout-rounded-left.png">
           <p>Logout</p>

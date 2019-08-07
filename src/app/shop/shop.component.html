@@ -1,5 +1,15 @@
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "#393E46"
+size = "large"
+color = "#F8B500"
+type = "ball-fall"
+[fullScreen] = "true"
+>
+</ngx-spinner>
 
-<div class="main-content">
+
+<div class="main-content container" *ngIf="products">
   <div class="spacer" style="padding-top: 10px"></div>
   <h1 class="color-blue">Shop</h1>
   <br>
@@ -9,18 +19,18 @@
   <br >
   <div *ngFor="let prod of displayProds; let i=index;" style="display: inline-block;">
     <a [routerLink]="['/single-product/', i]" >
-    <mat-card class="example-card">
+    <mat-card class="example-card" >
       <mat-card-header>
-        <mat-card-title>{{prod.title}}</mat-card-title>
+        <mat-card-title style="text-overflow: ellipsis; overflow:hidden;white-space: nowrap;width:170px;display: block;">{{prod.title}}</mat-card-title>
         <br>
-        <mat-card-subtitle>{{prod.category}}</mat-card-subtitle>
+        <mat-card-subtitle style="color:grey">{{prod.category}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="{{prod.images}}" alt="Photo of a Shiba Inu">
+      <img mat-card-image style="height: 180px" src="{{prod.images}}" alt="Photo of a Shiba Inu">
       <mat-card-content>
         <h4>
-          <mat-card-subtitle>Price:{{prod.price}}$</mat-card-subtitle>
+          <mat-card-subtitle style="color:white">Price:{{prod.price}}$</mat-card-subtitle>
         </h4>
-        <h5>{{prod.maker}}</h5>
+        <h5>{{prod.makerName}}</h5>
         <p>{{prod.date}}
         </p>
       </mat-card-content>
@@ -34,3 +44,10 @@
   <button class="tab" (click)=paginate(4)>>></button>
 </div>
 
+<div *ngIf="!products" class="main-content">
+    <div class="spacer" style="padding-top: 10px"></div>
+    <div class="spacer" style="padding-top: 10px"></div>
+    <h1 class="color-blue">Shop</h1>
+    <br>
+  <h3>Oops! No products found.</h3>
+</div>

@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminService } from './../admin.service';
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
@@ -41,7 +42,7 @@ export class MainComponent implements OnInit {
   sent = 0;
   total = 0;
 
-  constructor(private adminService: AdminService) {
+  constructor(private adminService: AdminService, private spinner: NgxSpinnerService) {
     this.adminService.getTotals('pending').subscribe(x => {
       x.forEach(e =>{
         const t: any = e;
@@ -68,6 +69,7 @@ export class MainComponent implements OnInit {
         this.sent += parseInt(t.total, 10);
       });
       this.total += this.sent;
+      this.spinner.hide();
     });
   }
 

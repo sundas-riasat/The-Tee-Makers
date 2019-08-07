@@ -53,6 +53,32 @@ body{
   background-color: #00ADB5;
 }
 
+.bg-Lavender{
+  background-color:	#E6E6FA;
+}
+.bg-Magenta{
+  background-color:	#FF00FF;
+}
+.bg-MediumOrchid{
+  background-color:	#BA55D3;
+}
+.bg-Indigo{
+  background-color:	#4B0082;
+}
+.bg-Navy{
+  background-color:#000080;
+}
+.bg-DeepSkyBlue	{
+  background-color: #00BFFF;
+}
+.bg-SteelBlue	{
+  background-color: #4682B4;
+}
+
+.bg-Brown	{
+  background-color: #A52A2A;
+}
+
 a {
   color: #393E46;
   text-decoration: none;

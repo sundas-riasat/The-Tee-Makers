@@ -1,7 +1,7 @@
-<div class="main-content">
-  <div class="spacer" style="padding: 10px;"></div>
-  <h2 class="color-blue">Cart</h2>
-  <div class="row" style="text-align: left" *ngFor="let item of products; let i=index">
+<div class="spacer" style="padding: 50px;"></div>
+<h2 class="color-blue" style="text-align: center">Cart</h2>
+<div class="main-content container" style="display: flex; align-content: center">
+  <div class="row container" style="text-align: left; " *ngFor="let item of products; let i=index">
     <div class="clm-6">
       <div class="cart-item">
         <mat-card>
@@ -20,6 +20,23 @@
       </div>
     </div>
   </div>
-  <a ><button mat-raised-button color="accent" routerLink="/user/checkout">Checkout</button></a>
-  <div class="spacer"></div>
+
 </div>
+<div class="spacer"></div>
+<div class="main-content" style="display: flex; align-content: center">
+<a style='margin: 0 auto;' ><button [disabled]="disabled" mat-raised-button color="accent" routerLink="/user/checkout">Checkout</button></a>
+<div class="spacer"></div>
+</div>
+
+
+
+
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "#393E46"
+size = "large"
+color = "#F8B500"
+type = "ball-fall"
+[fullScreen] = "true"
+>
+</ngx-spinner>

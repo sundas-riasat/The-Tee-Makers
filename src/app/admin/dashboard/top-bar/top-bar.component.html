@@ -10,15 +10,23 @@
         </div>
       </div>
       <div class="col-4">
-        <div class="nav-item">
-        </div>
+        <div class="nav-item"></div>
       </div>
       <div class="col-4">
         <div class="nav-item">
-          <img style="margin-left: 70px;"
-            class="icon"
-            src="https://img.icons8.com/material-outlined/24/ffffff/user-male-circle.png"
-          />
+          <a >
+            <img [matMenuTriggerFor]="animals"
+              style="margin-left: 70px;"
+              class="icon"
+              src="https://img.icons8.com/material-outlined/24/ffffff/user-male-circle.png"
+            />
+            <mat-menu #animals="matMenu">
+              <button mat-menu-item routerLink="/admin/orders">Orders</button>
+              <button mat-menu-item routerLink="/admin/designs">Designs</button>
+              <button mat-menu-item routerLink="/admin/messages">Queries</button>
+              <button mat-menu-item (click)="logout()">Logout</button>
+            </mat-menu>
+          </a>
         </div>
       </div>
     </div>

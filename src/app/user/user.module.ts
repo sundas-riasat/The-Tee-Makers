@@ -17,11 +17,13 @@ import {CartComponent} from './cart/cart.component';
 import {ProductService} from '../product.service';
 import {UserService} from '../user.service';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
   declarations: [LoginComponent, ProfileComponent, OrdersComponent, DesignsComponent, QueriesComponent, CartComponent, CheckoutComponent],
   imports: [
+    NgxSpinnerModule,
     CommonModule,
     MatInputModule,
     FormsModule,

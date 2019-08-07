@@ -21,7 +21,11 @@ export class AdminService {
    return this.db.object('/messages/' + id + '/status').set(val);
   }
   findUser(key) {
-    return true;
+   return true;
+  }
+
+  logout(){
+    return this.auth.auth.signOut();
   }
 
   getMessages() {

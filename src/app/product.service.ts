@@ -10,12 +10,13 @@ export class ProductService {
 
   product: Product;
   cart: any = [];
+  design: any;
 
   constructor(private db: AngularFireDatabase, public user: UserService) {
     if (localStorage.getItem('user') !== 'null') {
       this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart').valueChanges().subscribe(y => {
         this.cart = y;
-        localStorage.setItem('cart', this.cart);
+        localStorage.setItem('cart', JSON.stringify(this.cart));
       });
     }
   }
@@ -41,19 +42,17 @@ export class ProductService {
   }
 
   addToCart(id) {
-    const check = JSON.parse('[' + localStorage.getItem('cart') + ']')[0];
-    this.cart = JSON.parse('[' + localStorage.getItem('cart') + ']');
+    const check = JSON.parse(localStorage.getItem('cart')) !== null ? JSON.parse(localStorage.getItem('cart'))[0] : null;
+    this.cart = JSON.parse(localStorage.getItem('cart'));
     if (check !== null) {
-      console.log(this.cart);
       this.cart.push(id);
-      localStorage.setItem('cart', this.cart);
+      localStorage.setItem('cart', JSON.stringify(this.cart));
     } else {
       this.cart = [];
       this.cart.push(id);
-      localStorage.setItem('cart', this.cart);
-      console.log(this.cart);
+      localStorage.setItem('cart', JSON.stringify(this.cart));
     }
-    this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart').update(this.cart);
+    return this.db.list('usersData/' + JSON.parse(localStorage.getItem('user')).uid).set('cart', this.cart);
   }
 
   async getCart() {
@@ -76,6 +75,33 @@ export class ProductService {
     this.cart.splice(i, 1);
     console.log('IN service:' + this.cart);
     localStorage.setItem('cart', this.cart);
-    this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart').set(this.cart);
+    return this.db.object('usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/cart').set(this.cart);
+  }
+
+  saveDesign(design) {
+    this.design = design;
+    this.db.list('/usersData/' + JSON.parse(localStorage.getItem('user')).uid + '/designs').push(design);
+    this.addCustomDesignToCart(design);
+  }
+
+  addCustomDesignToCart(design) {
+    let id = null;
+    let subs = this.db.list('/products').valueChanges().subscribe(x => {
+      id = x.length;
+      this.db.list('/products').set((x.length).toString(), design);
+      this.addToCart(design);
+      subs.unsubscribe();
+    });
+  }
+
+  getAllDesigns() {
+    return this.db.list('/products');
+  }
+  getAllDesignsOfCurrentUser(){
+    return this.db.list('/products', ref => ref.orderByChild('maker')
+    .equalTo(this.user.getUserId())).valueChanges();
+  }
+  deleteDesign(prods) {
+   return this.db.list('/').set('/products', prods);
   }
 }

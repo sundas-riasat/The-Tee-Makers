@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../user.service";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-queries',
@@ -11,14 +12,15 @@ export class QueriesComponent implements OnInit {
   displayedColumns: string[] = ['sr', 'date', 'msg', 'fname', 'lname', 'phn', 'email', 'status'];
   transactions = [];
 
-  constructor(public user: UserService) {
+  constructor(public user: UserService, private spinner: NgxSpinnerService) {
+    this.spinner.show();
     this.user.getMessages().then(x => {
       x.subscribe(data => {
-        console.log(data);
         this.transactions = data;
+        this.spinner.hide();
       });
     }).catch(err => {
-      console.log(err);
+      this.spinner.hide();
     });
   }
 

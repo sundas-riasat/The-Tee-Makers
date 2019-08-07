@@ -24,7 +24,7 @@
         </mat-form-field>
         <br><br><br>
         <div style="display: flex; width: 70%;justify-content: space-around; margin: 0 auto;">
-          <a class="btn">
+          <a class="btn" (click)= "customize()">
             <button mat-stroked-button>Customize</button>
           </a>
           <a class="btn" (click)="addToCart(product)">
@@ -42,3 +42,12 @@
   </mat-card>
 </div> <br><br>
 
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "#393E46"
+size = "large"
+color = "#F8B500"
+type = "ball-fall"
+[fullScreen] = "true"
+>
+</ngx-spinner>

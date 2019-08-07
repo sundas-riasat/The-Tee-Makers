@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../user.service";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-orders',
@@ -12,10 +13,12 @@ export class OrdersComponent implements OnInit {
   transactions = [];
 
   /** Gets the total cost of all transactions. */
-  constructor(user: UserService) {
+  constructor(user: UserService, private spinner: NgxSpinnerService) {
+    this.spinner.show();
     const orders = user.getUserOrder().then(x => {
       x.subscribe(data => {
         this.transactions = data;
+        this.spinner.hide();
       });
     });
   }

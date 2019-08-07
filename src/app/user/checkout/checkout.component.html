@@ -1,40 +1,106 @@
-<div class="main-content container">
+<div
+  class="main-content container"
+  *ngIf="user.name && user.address && user.country && user.city && user.zip"
+>
   <div class="spacer" style="padding: 10px"></div>
-  <h2 class="color-blue" style="text-align: center">Checkout</h2><br><br>
+  <h2 class="color-blue" style="text-align: center">Checkout</h2>
+  <br /><br />
   <div class="row">
     <div class="col-6">
       <p><b>Billing Details:</b></p>
       <mat-form-field class="example-full-width" style="width: 70%;">
-        <input style="width: 100%;" [(ngModel)]="user.name"  type="text" matInput placeholder="First Name">
+        <input
+          style="width: 100%;"
+          [(ngModel)]="user.name"
+          type="text"
+          matInput
+          placeholder="First Name"
+        />
       </mat-form-field>
       <mat-form-field class="example-full-width" style="width: 70%;">
-        <input style="width: 100%;" [(ngModel)]="user.address" type="text" matInput placeholder="Address">
+        <input
+          style="width: 100%;"
+          [(ngModel)]="user.address"
+          type="text"
+          matInput
+          placeholder="Address"
+        />
       </mat-form-field>
       <mat-form-field class="example-full-width" style="width: 70%;">
-        <input style="width: 100%;" [(ngModel)]="user.country" type="text" matInput placeholder="Country">
+        <input
+          style="width: 100%;"
+          [(ngModel)]="user.country"
+          type="text"
+          matInput
+          placeholder="Country"
+        />
       </mat-form-field>
       <mat-form-field class="example-full-width" style="width: 70%;">
-        <input style="width: 100%;" [(ngModel)]="user.city" type="text" matInput placeholder="City">
+        <input
+          style="width: 100%;"
+          [(ngModel)]="user.city"
+          type="text"
+          matInput
+          placeholder="City"
+        />
       </mat-form-field>
       <mat-form-field class="example-full-width" style="width: 70%;">
-        <input style="width: 100%;" [(ngModel)]="user.zip" type="number" matInput placeholder="Zip Code">
-      </mat-form-field><br>
+        <input
+          style="width: 100%;"
+          [(ngModel)]="user.zip"
+          type="number"
+          matInput
+          placeholder="Zip Code"
+        /> </mat-form-field
+      ><br />
       <mat-radio-group id="payment" aria-label="Select an option">
-        <mat-radio-button (click)="disable(false)" class="bg-grey" value="true">Debit Card</mat-radio-button>
-        <br>
+        <mat-radio-button (click)="disable(false)" class="bg-grey" value="true"
+          >Debit Card</mat-radio-button
+        >
+        <br />
         <mat-form-field class="example-full-width" style="width: 70%;">
-          <input style="width: 100%;" [(ngModel)]="card.cardno" [disabled]="disabled" type="number" matInput placeholder="Card Number">
+          <input
+            style="width: 100%;"
+            [(ngModel)]="card.cardno"
+            [disabled]="disabled"
+            type="number"
+            matInput
+            placeholder="Card Number"
+          />
         </mat-form-field>
         <mat-form-field class="example-full-width" style="width: 70%;">
-          <input style="width: 100%;" [(ngModel)]="card.holder" [disabled]="disabled" type="text" matInput placeholder="Holder Name">
+          <input
+            style="width: 100%;"
+            [(ngModel)]="card.holder"
+            [disabled]="disabled"
+            type="text"
+            matInput
+            placeholder="Holder Name"
+          />
         </mat-form-field>
         <mat-form-field class="example-full-width" style="width: 70%;">
-          <input style="width: 100%;" [(ngModel)]="card.expiry" [disabled]="disabled" type="date" matInput placeholder="Expiry Date">
+          <input
+            style="width: 100%;"
+            [(ngModel)]="card.expiry"
+            [disabled]="disabled"
+            type="date"
+            matInput
+            placeholder="Expiry Date"
+          />
         </mat-form-field>
         <mat-form-field class="example-full-width" style="width: 70%;">
-          <input style="width: 100%;" [(ngModel)]="card.ccv" [disabled]="disabled" type="number" matInput placeholder="CCV">
-        </mat-form-field><br>
-        <mat-radio-button (click)="disable(true)" class="bg-grey" value="false">Cash On Delivery</mat-radio-button>
+          <input
+            style="width: 100%;"
+            [(ngModel)]="card.ccv"
+            [disabled]="disabled"
+            type="number"
+            matInput
+            placeholder="CCV"
+          /> </mat-form-field
+        ><br />
+        <mat-radio-button (click)="disable(true)" class="bg-grey" value="false"
+          >Cash On Delivery</mat-radio-button
+        >
       </mat-radio-group>
     </div>
     <div class="col-6">
@@ -42,29 +108,70 @@
         <h4>Cart Summary</h4>
         <table>
           <tr>
-          <th>Serial No.</th>
-          <th>Product</th>
-          <th>Price</th>
+            <th>Serial No.</th>
+            <th>Product</th>
+            <th>Price</th>
           </tr>
-          <tr *ngFor="let prod of products; let i=index">
-            <td>{{i+1}}</td>
-            <td>{{prod.title}}</td>
-            <td>{{prod.price}}$</td>
+          <tr *ngFor="let prod of products; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ prod.title }}</td>
+            <td>{{ prod.price }}$</td>
           </tr>
           <tr class="t-footer">
-            <td colspan="2" style="text-align: right; padding-right: 40px"><b>Total: </b></td>
-            <td style="text-align: center">{{total}}$</td>
+            <td colspan="2" style="text-align: right; padding-right: 40px">
+              <b>Total: </b>
+            </td>
+            <td style="text-align: center">{{ total }}$</td>
           </tr>
         </table>
       </mat-card>
     </div>
   </div>
-  <br>
+  <br />
   <div class="row">
     <div class="clm-12">
-      <a ><button mat-raised-button (click)="checkout()" color="accent">Checkout</button></a>
-      <a ><button mat-raised-button color="warn">Cancel</button></a>
+      <a
+        ><button mat-raised-button (click)="checkout()" color="accent">
+          Checkout
+        </button></a
+      >
+      <a><button mat-raised-button color="warn">Cancel</button></a>
     </div>
     <div class="spacer"></div>
   </div>
 </div>
+
+<div
+  *ngIf="
+    !user.name || !user.address || !user.country || !user.city || !user.zip
+  "
+  class="main-content container"
+>
+  <div class="spacer" style="padding: 10px"></div>
+  <h2 class="color-blue" style="text-align: center">Checkout</h2>
+  <br /><br />
+  <div class="row" style="text-align: center;">
+    <div class="col-12 container">
+      <mat-card>
+        <h3 class="color-red">Oops!! You need to complete your profile to make the order.</h3>
+        <p>
+          Go to your profile page in the top right dropdown menu and fill in all
+          the details or click the below button.
+        </p>
+        <button [routerLink]="['/user/profile']"  mat-raised-button color="primary"> Go To Profile</button>
+      </mat-card>
+    </div>
+  </div>
+  <div class="spacer" style="padding: 10px"></div>
+</div>
+
+
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "#393E46"
+size = "large"
+color = "#F8B500"
+type = "ball-fall"
+[fullScreen] = "true"
+>
+</ngx-spinner>

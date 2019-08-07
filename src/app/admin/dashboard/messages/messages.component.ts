@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
 import { MessagePopupComponent } from '../message-popup/message-popup.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-messages',
@@ -13,15 +14,18 @@ export class MessagesComponent implements OnInit {
 
   messages: any = [];
   keys: any = [];
-  constructor(private adminService: AdminService, private toastr: ToastrService, public dialog: MatDialog) {
+  constructor(private adminService: AdminService, private toastr: ToastrService, public dialog: MatDialog, private spinner: NgxSpinnerService) {
+    this.spinner.show();
     this.adminService.getMessages().subscribe(x => {
       this.messages = [];
       this.keys = [];
       Object.keys(x).forEach(e => {
         this.messages.push(x[e]);
         this.keys.push(e);
+        this.spinner.hide();
       });
     }, err => {
+      this.spinner.hide();
       this.toastr.error(err.message, err.code);
     });
   }

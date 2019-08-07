@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DoYourTeeComponent } from './do-your-tee/do-your-tee.component';
-import {RouterModule} from '@angular/router';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { RouterModule } from '@angular/router';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -41,15 +41,19 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AlertModule } from 'ngx-bootstrap';
+import { TextPopupComponent } from './text-popup/text-popup.component';
+import { DesignDetailsComponent } from './design-details/design-details.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 
 
 @NgModule({
-  declarations: [DoYourTeeComponent],
+  declarations: [DoYourTeeComponent, TextPopupComponent, DesignDetailsComponent],
   imports: [
     FormsModule,
+    NgxSpinnerModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -96,9 +100,15 @@ import { AlertModule } from 'ngx-bootstrap';
     RouterModule.forChild([{
       path: 'dyt',
       component: DoYourTeeComponent
+    },
+    {
+      path: 'add-details',
+      component: DesignDetailsComponent
+
     }]),
     MatCardModule,
     HttpClientModule
-  ]
+  ],
+  entryComponents: [TextPopupComponent]
 })
 export class DesignModule { }

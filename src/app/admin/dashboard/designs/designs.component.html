@@ -1,1 +1,47 @@
-<p>designs works!</p>
+<div class="container">
+    <div class="spacer"></div>
+    <div class="row" style="margin-left: 20px">
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Design</th>
+                    <th>Price</th>
+                    <th>UserID</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  *ngFor="let prod of products; let i=index">
+                    <td >{{prod.title}}</td>
+                    <td >{{prod.date}}</td>
+                    <td ><img height="50" [src]="prod.images" alt=""></td>
+                    <td >{{prod.price}} $</td>
+                    <td >{{prod.maker}}</td>
+                    <td>
+                        <a (click)="delete(i)">
+                            <button mat-raised-button color="warn"> Delete</button>
+                        </a>
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "#393E46"
+size = "large"
+color = "#F8B500"
+type = "ball-fall"
+[fullScreen] = "true"
+>
+</ngx-spinner>
