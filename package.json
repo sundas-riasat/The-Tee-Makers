@@ -24,7 +24,7 @@
     "@angular/router": "~8.1.0",
     "bootstrap": "^4.3.1",
     "brain.js": "^1.6.1",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "core-js": "^3.1.4",
     "file-system": "^2.2.2",
     "firebase": "^6.2.4",
